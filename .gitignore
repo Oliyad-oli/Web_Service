@@ -6,3 +6,6 @@ tomcat50-jwsdp/temp/*
 tomcat50-jwsdp/work/*
 !tomcat50-jwsdp/work/.gitkeep
 *.log
+
+# Build artifacts
+YourApp/build/
