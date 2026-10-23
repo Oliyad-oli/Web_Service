@@ -1,0 +1,8 @@
+# Logs and runtime caches
+tomcat50-jwsdp/logs/*
+!tomcat50-jwsdp/logs/.gitkeep
+tomcat50-jwsdp/temp/*
+!tomcat50-jwsdp/temp/.gitkeep
+tomcat50-jwsdp/work/*
+!tomcat50-jwsdp/work/.gitkeep
+*.log
