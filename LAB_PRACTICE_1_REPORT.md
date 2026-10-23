@@ -1,18 +1,27 @@
-# Web Services Lab Practice 1: Report and Experiments Guide
-**Academic Year:** 2026–2027  
-**Course:** Web Services (5th Year)  
-**Document:** Lab Practice 1 Report  
+# HARAMAYA UNIVERSITY
+## COLLEGE OF COMPUTING AND INFORMATICS
+### DEPARTMENT OF SOFTWARE ENGINEERING
+**YEAR V – SEMESTER I | ACADEMIC YEAR: 2026–2027**  
+**COURSE:** Web Services  
+**ASSIGNMENT:** Lab Practice 1 - Guide and Experiments Report  
+**DATE:** October 2026  
+**LOCATION:** HARAMAYA | OROMIA | ETHIOPIA  
 
 ---
 
-## Student & Group Metadata
-* **Group Name:** [INSERT GROUP NAME HERE]
-* **Group Members Name and ID:**
-  * Member 1: Oliad Dandena (ID: [INSERT ID])
-  * Member 2: [INSERT MEMBER 2 NAME AND ID]
-  * Member 3: [INSERT MEMBER 3 NAME AND ID]
+## Group Project Metadata & Members
+* **Department:** Software Engineering
+* **Course:** Web Services (5th Year)
 * **Title of the Program:** Practical Configuration, Administration, and Deployment of Java Web Services (JWSDP, Apache Tomcat 5.0, JAXR/UDDI, and Apache Ant)
 * **Target Operating System:** Ubuntu Linux 24.04 LTS (x86_64)
+
+### Group Members:
+| No. | Student Full Name | Student ID |
+| :---: | :--- | :---: |
+| 1 | **Yabets Tinsae Dube** | 1040/15 |
+| 2 | **Tesfalem Markos** | 0993/15 |
+| 3 | **Abdi Tamene Tekuma** | 0008/15 |
+| 4 | **Yosan Gonfa Merga** | 1 |
 
 ---
 

@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ =========================================================================
+ HARAMAYA UNIVERSITY
+ COLLEGE OF COMPUTING AND INFORMATICS
+ DEPARTMENT OF SOFTWARE ENGINEERING
+ YEAR V – SEMESTER I | ACADEMIC YEAR: 2026-2027
+ COURSE: Web Services
+ HARAMAYA | OROMIA | ETHIOPIA
+ 
+ GROUP MEMBERS:
+ 1. Yabets Tinsae Dube   - ID: 1040/15
+ 2. Tesfalem Markos      - ID: 0993/15
+ 3. Abdi Tamene Tekuma   - ID: 0008/15
+ 4. Yosan Gonfa Merga    - ID: 1
+ 
+ TITLE OF THE PROGRAM:
+ Web Application Deployment Descriptor (web.xml) - Servlet 2.3
+ =========================================================================
+-->
 <!DOCTYPE web-app
     PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
     "http://java.sun.com/dtd/web-app_2_3.dtd">
