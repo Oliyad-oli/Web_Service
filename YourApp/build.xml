@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SimpleServletBuild" default="deploy" basedir=".">
+
+    <!-- ===================== -->
+    <!-- Project configuration -->
+    <!-- ===================== -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="web.dir" value="web"/>
+    <property name="tomcat.home" location="${basedir}/../tomcat50-jwsdp"/>
+    <property name="deploy.dir" location="${tomcat.home}/webapps/YourApp"/>
+
+    <!-- Classpath includes servlet API from Tomcat common/lib -->
+    <path id="compile.classpath">
+        <pathelement location="${tomcat.home}/common/lib/servlet-api.jar"/>
+    </path>
+
+    <!-- ===================== -->
+    <!-- Clean build directory -->
+    <!-- ===================== -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <!-- ===================== -->
+    <!-- Compile servlet source -->
+    <!-- ===================== -->
+    <target name="compile" depends="clean">
+        <mkdir dir="${build.dir}/classes"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}/classes" includeantruntime="false"
+               classpathref="compile.classpath" source="1.8" target="1.8"/>
+    </target>
+
+    <!-- ===================== -->
+    <!-- Prepare WAR structure -->
+    <!-- ===================== -->
+    <target name="prepare" depends="compile">
+        <mkdir dir="${build.dir}/WEB-INF/classes"/>
+        <copy todir="${build.dir}/WEB-INF/classes">
+            <fileset dir="${build.dir}/classes"/>
+        </copy>
+        <copy todir="${build.dir}/WEB-INF">
+            <fileset dir="${web.dir}/WEB-INF"/>
+        </copy>
+    </target>
+
+    <!-- ===================== -->
+    <!-- Deploy to Tomcat -->
+    <!-- ===================== -->
+    <target name="deploy" depends="prepare">
+        <mkdir dir="${deploy.dir}"/>
+        <copy todir="${deploy.dir}">
+            <fileset dir="${build.dir}">
+                <exclude name="classes/**"/>
+            </fileset>
+        </copy>
+        <echo message="Servlet deployed to ${deploy.dir}. Restart or reload Tomcat to apply changes."/>
+    </target>
+
+</project>
