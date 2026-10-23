@@ -21,7 +21,8 @@
 | 1 | **Yabets Tinsae Dube** | 1040/15 |
 | 2 | **Tesfalem Markos** | 0993/15 |
 | 3 | **Abdi Tamene Tekuma** | 0008/15 |
-| 4 | **Yosan Gonfa Merga** | 1 |
+| 4 | **Yosan Gonfa Merga** | 1084/15 |
+| 5 | **Oliyad Dandena** | 1786/15 |
 
 ---
 
