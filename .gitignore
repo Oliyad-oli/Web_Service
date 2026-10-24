@@ -9,3 +9,10 @@ tomcat50-jwsdp/work/*
 
 # Build artifacts
 YourApp/build/
+
+# Large binary installers
+*.exe
+
+# OS files
+.DS_Store
+Thumbs.db

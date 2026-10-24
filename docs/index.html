@@ -1,0 +1,2326 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LAB_PRACTICE_1_REPORT_FINAL.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="-lab-practice-1--comprehensive-report">🎓 LAB PRACTICE 1 — COMPREHENSIVE REPORT</h1>
+<hr>
+<div align="center">
+<h1 id="haramaya-university">HARAMAYA UNIVERSITY</h1>
+<h2 id="college-of-computing-and-informatics">College of Computing and Informatics</h2>
+<h3 id="department-of-software-engineering">Department of Software Engineering</h3>
+<hr>
+<p><strong>Course:</strong> Web Services</p>
+<p><strong>Lab Practice:</strong> Lab Practice 1 — Java Web Services Developer Pack (JWSDP), Apache Tomcat 5.0 &amp; Apache Ant</p>
+<p><strong>Academic Year:</strong> 2026–2027 | <strong>Year V — Semester I</strong></p>
+<hr>
+</div>
+<h2 id="-group-members">👥 Group Members</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Full Name</th>
+<th>Student ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Yabets Tinsae Dube</td>
+<td>1040/15</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tesfalem Markos</td>
+<td>0993/15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Abdi Tamene Tekuma</td>
+<td>0008/15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Yosan Gonfa Merga</td>
+<td>1084/15</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Oliyad Dandena</td>
+<td>1786/15</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-executive-summary">📋 Executive Summary</h2>
+<p>This laboratory practice report documents sixteen (16) hands-on experiments conducted using the <strong>Java Web Services Developer Pack (JWSDP)</strong>, <strong>Apache Tomcat 5.0</strong>, <strong>Apache Ant</strong>, and supporting Java EE technologies. The experiments were carried out on an <strong>Ubuntu Linux</strong> operating system using <strong>Java 8 (OpenJDK)</strong>.</p>
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+<table>
+<thead>
+<tr>
+<th>Tool / Technology</th>
+<th>Version</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java Web Services Developer Pack (JWSDP)</td>
+<td>1.x / 2.x</td>
+<td>Java web services development kit</td>
+</tr>
+<tr>
+<td>Apache Tomcat</td>
+<td>5.0 (bundled via JWSDP)</td>
+<td>Java Servlet / JSP container</td>
+</tr>
+<tr>
+<td>Apache Ant</td>
+<td>1.6+</td>
+<td>Build automation tool</td>
+</tr>
+<tr>
+<td>Java (OpenJDK)</td>
+<td>8 (1.8)</td>
+<td>Primary programming language runtime</td>
+</tr>
+<tr>
+<td>Ubuntu Linux</td>
+<td>20.04 LTS</td>
+<td>Host operating system</td>
+</tr>
+<tr>
+<td>JAXR</td>
+<td>1.0</td>
+<td>Java API for XML Registries (UDDI)</td>
+</tr>
+<tr>
+<td>UDDI</td>
+<td>2.0</td>
+<td>Universal Description, Discovery and Integration</td>
+</tr>
+<tr>
+<td>Struts</td>
+<td>1.x</td>
+<td>MVC framework (used in Tomcat Admin)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> The Java Web Services Developer Pack (JWSDP) bundles Tomcat 5.0 as its web container alongside JAXR, JAXP, JAX-RPC, JAXM, JSSE, and JSTL APIs, making it a comprehensive platform for exploring Java-based web services.</p>
+</blockquote>
+<hr>
+<h2 id="1--introduction-java-web-services-developer-pack-jwsdp">1. 📖 Introduction: Java Web Services Developer Pack (JWSDP)</h2>
+<p>The <strong>Java Web Services Developer Pack (JWSDP)</strong> is a free integrated toolkit released by Sun Microsystems that provides the core technologies required to design, develop, test, and deploy web services and web applications using the Java platform. JWSDP bundles multiple critical APIs under a single downloadable package.</p>
+<h3 id="11-core-jwsdp-components">1.1 Core JWSDP Components</h3>
+<h4 id="111-jaxp--java-api-for-xml-processing">1.1.1 JAXP — Java API for XML Processing</h4>
+<p>JAXP provides a vendor-neutral interface for parsing and transforming XML documents. It supports:</p>
+<ul>
+<li><strong>SAX</strong> (Simple API for XML) — event-driven, memory-efficient parser</li>
+<li><strong>DOM</strong> (Document Object Model) — tree-based in-memory representation</li>
+<li><strong>XSLT</strong> (Extensible Stylesheet Language Transformations) — XML-to-XML or XML-to-HTML transformation</li>
+</ul>
+<h4 id="112-jaxm--java-api-for-xml-messaging">1.1.2 JAXM — Java API for XML Messaging</h4>
+<p>JAXM enables asynchronous XML messaging over the internet based on the SOAP standard. It provides a framework for:</p>
+<ul>
+<li>Sending and receiving XML documents via SOAP</li>
+<li>Supporting SOAP with Attachments (SwA)</li>
+<li>Message queuing and delivery guarantees</li>
+</ul>
+<h4 id="113-jax-rpc--java-api-for-xml-based-rpc">1.1.3 JAX-RPC — Java API for XML-Based RPC</h4>
+<p>JAX-RPC allows Java developers to build web services and web service clients that use remote procedure calls (RPC) and XML. It serves as the predecessor to JAX-WS (Java API for XML Web Services), supporting:</p>
+<ul>
+<li>WSDL-based service description</li>
+<li>SOAP 1.1 message encoding</li>
+<li>Java-to-WSDL and WSDL-to-Java mapping</li>
+</ul>
+<h4 id="114-jaxr--java-api-for-xml-registries">1.1.4 JAXR — Java API for XML Registries</h4>
+<p>JAXR provides a uniform API for accessing different kinds of XML-based business registries, most notably <strong>UDDI</strong> and <strong>ebXML</strong> registries. It enables applications to publish and discover web services.</p>
+<h4 id="115-jsse--java-secure-socket-extension">1.1.5 JSSE — Java Secure Socket Extension</h4>
+<p>JSSE provides a Java framework and implementation for the SSL and TLS protocols. It enables secure communications for Java applications by:</p>
+<ul>
+<li>Providing data encryption</li>
+<li>Server and optional client authentication</li>
+<li>Message integrity validation</li>
+</ul>
+<h4 id="116-jstl--javaserver-pages-standard-tag-library">1.1.6 JSTL — JavaServer Pages Standard Tag Library</h4>
+<p>JSTL encapsulates common JSP functionality into a standard set of tag libraries, including:</p>
+<ul>
+<li>Core tags (conditionals, loops, URL handling)</li>
+<li>Formatting tags (internationalization, number/date formatting)</li>
+<li>SQL tags (database access)</li>
+<li>XML tags (XML manipulation)</li>
+</ul>
+<h4 id="117-apache-ant">1.1.7 Apache Ant</h4>
+<p>Apache Ant is a Java-based build automation tool included in JWSDP for compiling, packaging, and deploying web applications. Unlike Make, Ant uses XML-based build files (<code>build.xml</code>) and is entirely platform-independent.</p>
+<h4 id="118-apache-tomcat-50">1.1.8 Apache Tomcat 5.0</h4>
+<p>Tomcat is the open-source Java Servlet and JSP container bundled with JWSDP. It implements the Servlet 2.4 and JSP 2.0 specifications and acts as the runtime environment for all deployed web applications.</p>
+<h4 id="119-uddi-registry">1.1.9 UDDI Registry</h4>
+<p>UDDI (Universal Description, Discovery and Integration) is a platform-independent, XML-based registry standard for businesses to list themselves on the internet. It enables businesses to discover each other and define how they interact over the internet.</p>
+<h3 id="12-jwsdp-architecture-overview">1.2 JWSDP Architecture Overview</h3>
+<pre><code class="language-mermaid"><div class="mermaid">graph TD
+    JWSDP["☕ JWSDP — Java Web Services Developer Pack"]
+
+    JWSDP --> JAXP["📄 JAXP\nXML Processing"]
+    JWSDP --> JAXM["📨 JAXM\nXML Messaging"]
+    JWSDP --> JAXTPC["🔗 JAX-RPC\nXML-Based RPC"]
+    JWSDP --> JAXR["🔍 JAXR\nXML Registries"]
+    JWSDP --> JSSE["🔐 JSSE\nSecure Sockets"]
+    JWSDP --> JSTL["🏷️ JSTL\nTag Libraries"]
+    JWSDP --> ANT["🐜 Apache Ant\nBuild Tool"]
+    JWSDP --> TOMCAT["🐱 Apache Tomcat 5.0\nServlet Container"]
+
+    TOMCAT --> SERVLET["Servlet 2.4 Engine"]
+    TOMCAT --> JSP["JSP 2.0 Engine"]
+    TOMCAT --> WEBAPPS["webapps/ Directory"]
+
+    JAXR --> UDDI["🌐 UDDI Registry\nBusiness Discovery"]
+</div></code></pre>
+<hr>
+<h2 id="2-️-installation--configuration-ubuntu-linux">2. ⚙️ Installation &amp; Configuration (Ubuntu Linux)</h2>
+<p>The following steps describe how to set up the JWSDP environment on Ubuntu Linux with Java 8.</p>
+<h3 id="21-prerequisites">2.1 Prerequisites</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Verify Java 8 installation</span>
+java -version
+<span class="hljs-comment"># Expected output:</span>
+<span class="hljs-comment"># openjdk version &quot;1.8.0_xxx&quot;</span>
+
+<span class="hljs-comment"># Set JAVA_HOME</span>
+<span class="hljs-built_in">export</span> JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+<span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$JAVA_HOME</span>/bin:<span class="hljs-variable">$PATH</span>
+</div></code></pre>
+<h3 id="22-directory-structure">2.2 Directory Structure</h3>
+<pre class="hljs"><code><div>web_services/
+├── tomcat50-jwsdp/             ← Tomcat 5.0 installation root
+│   ├── bin/                    ← startup.sh / shutdown.sh
+│   ├── conf/                   ← server.xml, web.xml, catalina.policy
+│   ├── webapps/                ← deployed web applications
+│   │   ├── ROOT/
+│   │   ├── tomcat-docs/
+│   │   ├── jsp-examples/
+│   │   ├── servlets-examples/
+│   │   ├── webdav/
+│   │   └── YourApp/           ← our deployed servlet
+│   ├── logs/                   ← catalina.out, access logs
+│   ├── temp/                   ← temporary files
+│   └── work/                   ← compiled JSP class files
+└── YourApp/                    ← our source project
+    ├── src/
+    │   └── com/example/MyServlet.java
+    ├── web/
+    │   └── WEB-INF/
+    │       └── web.xml
+    └── build.xml
+</div></code></pre>
+<h3 id="23-starting-tomcat">2.3 Starting Tomcat</h3>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> web_services/tomcat50-jwsdp/bin
+<span class="hljs-built_in">chmod</span> +x startup.sh shutdown.sh catalina.sh
+./startup.sh
+</div></code></pre>
+<hr>
+<h2 id="3--experiments">3. 🔬 Experiments</h2>
+<hr>
+<h3 id="experiment-1--tomcat-server-startup">Experiment 1 — Tomcat Server Startup</h3>
+<p><strong>Objective:</strong> Start the Apache Tomcat 5.0 server and observe both the console output and the startup dialog behavior.</p>
+<h4 id="a-console-text-output-on-command-line">(a) Console Text Output on Command Line</h4>
+<p>When Tomcat is started from the terminal using <code>startup.sh</code>, the following output is produced:</p>
+<pre class="hljs"><code><div>┌─────────────────────────────────────────────────────────────────────────────┐
+│  TERMINAL — bash                                                             │
+│─────────────────────────────────────────────────────────────────────────────│
+│  $ cd /home/oliyad-dandena/Documents/5thYear/web_services/tomcat50-jwsdp/   │
+│  $ ./bin/startup.sh                                                          │
+│                                                                              │
+│  Using CATALINA_BASE:   .../web_services/tomcat50-jwsdp                     │
+│  Using CATALINA_HOME:   .../web_services/tomcat50-jwsdp                     │
+│  Using CATALINA_TMPDIR: .../web_services/tomcat50-jwsdp/temp                │
+│  Using JAVA_HOME:       /usr/lib/jvm/java-8-openjdk-amd64                  │
+│                                                                              │
+│  INFO: Installing web app at context path /webdav from URL file:...         │
+│  INFO: Installing web app at context path /jsp-examples from URL...         │
+│  INFO: Installing web app at context path /servlets-examples...             │
+│  INFO: Installing web app at context path /tomcat-docs from URL...          │
+│  INFO: Installing web app at context path  from URL file:.../ROOT           │
+│  INFO: Starting Coyote HTTP/1.1 on port 8080                                │
+│  INFO: Server startup in 993 ms                                              │
+│  $                                                                           │
+└─────────────────────────────────────────────────────────────────────────────┘
+</div></code></pre>
+<h4 id="analysis-of-each-startup-line">Analysis of Each Startup Line</h4>
+<table>
+<thead>
+<tr>
+<th>Log Entry</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CATALINA_BASE</code></td>
+<td>The base directory used by Tomcat for configuration and webapps</td>
+</tr>
+<tr>
+<td><code>CATALINA_HOME</code></td>
+<td>The directory where Tomcat is installed (binaries and libraries)</td>
+</tr>
+<tr>
+<td><code>CATALINA_TMPDIR</code></td>
+<td>Temporary working directory for class files and intermediate data</td>
+</tr>
+<tr>
+<td><code>JAVA_HOME</code></td>
+<td>Points to the JDK used to run Tomcat</td>
+</tr>
+<tr>
+<td><code>Installing web application at context path /webdav</code></td>
+<td>Deploys the WebDAV servlet application</td>
+</tr>
+<tr>
+<td><code>Installing web application at context path /jsp-examples</code></td>
+<td>Deploys JSP example applications</td>
+</tr>
+<tr>
+<td><code>Installing web application at context path /servlets-examples</code></td>
+<td>Deploys Servlet example applications</td>
+</tr>
+<tr>
+<td><code>Installing web application at context path /tomcat-docs</code></td>
+<td>Deploys the Tomcat documentation web app</td>
+</tr>
+<tr>
+<td><code>Installing web application at context path </code> (empty = ROOT)</td>
+<td>Deploys the ROOT application at <code>/</code></td>
+</tr>
+<tr>
+<td><code>Starting Coyote HTTP/1.1 on port 8080</code></td>
+<td>The HTTP connector is active and listening</td>
+</tr>
+<tr>
+<td><code>Server startup in 993 ms</code></td>
+<td>Total time taken for Tomcat to fully initialize</td>
+</tr>
+</tbody>
+</table>
+<h4 id="b-startup-dialog-box">(b) Startup Dialog Box</h4>
+<p>On Windows environments, Tomcat displays a system tray icon and a configuration dialog. On Linux, the equivalent is the terminal session itself. The startup process can be visualized as:</p>
+<pre class="hljs"><code><div>╔══════════════════════════════════════════╗
+║       Apache Tomcat Properties           ║
+╠══════════════════════════════════════════╣
+║  Status:   ● RUNNING                     ║
+║  Port:     8080                          ║
+║  Java:     /usr/lib/jvm/java-8-openjdk   ║
+║  Base:     tomcat50-jwsdp/               ║
+╠══════════════════════════════════════════╣
+║  [ Start ]  [ Stop ]  [ Configure ]      ║
+╚══════════════════════════════════════════╝
+</div></code></pre>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TD
+    A["Run startup.sh"] --> B["JVM Initializes"]
+    B --> C["Load server.xml configuration"]
+    C --> D["Initialize GlobalNamingResources JNDI"]
+    D --> E["Create HTTP Connector on port 8080"]
+    E --> F["Scan webapps/ directory"]
+    F --> G["Deploy each web application"]
+    G --> H["Start Coyote HTTP/1.1 engine"]
+    H --> I["✅ Server Ready — Listening on :8080"]
+</div></code></pre>
+<hr>
+<h3 id="experiment-2--jaxr-registry-browser-dialog-box">Experiment 2 — JAXR Registry Browser Dialog Box</h3>
+<p><strong>Objective:</strong> Open and explore the JAXR Registry Browser included in JWSDP, and take a screenshot of its main dialog box.</p>
+<h4 id="overview">Overview</h4>
+<p>The <strong>JAXR Registry Browser</strong> is a Swing-based GUI tool that ships with JWSDP. It allows users to connect to UDDI or ebXML registries, browse registered businesses and services, and submit new registry entries without writing any code.</p>
+<h4 id="simulated-dialog-box">Simulated Dialog Box</h4>
+<pre class="hljs"><code><div>╔══════════════════════════════════════════════════════════════════════╗
+║  JAXR Registry Browser — Sun Microsystems JWSDP                     ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                                                                      ║
+║  Registry:  [ IBM Test Registry (UDDI)              ▼ ]             ║
+║                                                                      ║
+║  ┌─────────────────────────────────────────────────────────────┐    ║
+║  │ 📁 Registry Tree                                             │    ║
+║  │  └─ Organizations                                           │    ║
+║  │      ├─ Sun Microsystems                                    │    ║
+║  │      ├─ IBM Corporation                                     │    ║
+║  │      └─ Apache Software Foundation                          │    ║
+║  └─────────────────────────────────────────────────────────────┘    ║
+║                                                                      ║
+║  [ Connect ]  [ Search ]  [ Publish ]  [ Delete ]  [ Close ]        ║
+╚══════════════════════════════════════════════════════════════════════╝
+</div></code></pre>
+<h4 id="registry-selection-flowchart">Registry Selection Flowchart</h4>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart LR
+    A["Launch JAXR Browser"] --> B["Select Registry from Dropdown"]
+    B --> C{Registry Type}
+    C -->|UDDI| D["Connect to UDDI Inquiry URL\ne.g. uddi.ibm.com"]
+    C -->|ebXML| E["Connect to ebXML Registry\nusing JAXR ebXML provider"]
+    D --> F["Authenticate with username/password"]
+    E --> F
+    F --> G["Browse Registry Tree"]
+    G --> H["View Organizations, Services, Bindings"]
+</div></code></pre>
+<hr>
+<h3 id="experiment-3--uddi-public-test-registries-uddimicrosoftcom--ibm-services">Experiment 3 — UDDI Public Test Registries (uddi.microsoft.com / IBM Services)</h3>
+<p><strong>Objective:</strong> Navigate to the public UDDI test registries at <code>uddi.microsoft.com</code> and IBM's UDDI site and observe the listing of test registries.</p>
+<h4 id="historical-context--the-demise-of-the-ubr">Historical Context — The Demise of the UBR</h4>
+<blockquote>
+<p><strong>⚠️ Important Historical Note:</strong> The <strong>Universal Business Registry (UBR)</strong> — a set of public UDDI registries operated jointly by IBM, Microsoft, SAP, and NTT — was permanently shut down on <strong>January 12, 2006</strong>. The partners cited low adoption rates and the evolution of service-oriented architecture (SOA) toward private/internal registries as the primary reasons.</p>
+</blockquote>
+<h4 id="what-existed-at-the-public-test-registries">What Existed at the Public Test Registries</h4>
+<p>When operational, the following endpoints were available:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Inquiry URL</th>
+<th>Publish URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IBM</td>
+<td><code>https://uddi.ibm.com/testregistry/inquiryapi</code></td>
+<td><code>https://uddi.ibm.com/testregistry/publishapi</code></td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td><code>https://test.uddi.microsoft.com/inquire</code></td>
+<td><code>https://test.uddi.microsoft.com/publish</code></td>
+</tr>
+<tr>
+<td>SAP</td>
+<td><code>https://udditest.sap.com/UDDI/api/inquiry/</code></td>
+<td><code>https://udditest.sap.com/UDDI/api/publish/</code></td>
+</tr>
+<tr>
+<td>NTT</td>
+<td><code>https://www.ntt.com/uddi/inquiry</code></td>
+<td><code>https://www.ntt.com/uddi/publish</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="simulated-registry-listing-page-ibm-uddi-test-registry">Simulated Registry Listing Page (IBM UDDI Test Registry)</h4>
+<pre class="hljs"><code><div>╔══════════════════════════════════════════════════════════════════╗
+║   IBM UDDI Test Registry — https://uddi.ibm.com                 ║
+╠══════════════════════════════════════════════════════════════════╣
+║                                                                  ║
+║  Available Test Registries:                                      ║
+║                                                                  ║
+║  ● IBM Test Registry (UDDI v2)                                   ║
+║    Inquiry:  https://uddi.ibm.com/testregistry/inquiryapi       ║
+║    Publish:  https://uddi.ibm.com/testregistry/publishapi       ║
+║    Status:   [CLOSED — Jan 12, 2006]                            ║
+║                                                                  ║
+║  ● IBM Production Registry (UDDI v3)                            ║
+║    Inquiry:  https://uddi3.ibm.com/uddi/anon?wsdl               ║
+║    Status:   [CLOSED — Jan 12, 2006]                            ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+</div></code></pre>
+<h4 id="modern-alternatives">Modern Alternatives</h4>
+<p>Since the UBR shutdown, the following alternatives exist for UDDI-style service discovery:</p>
+<ul>
+<li><strong>WSO2 Governance Registry</strong> — enterprise service registry</li>
+<li><strong>Apache jUDDI</strong> — open-source UDDI v3 implementation</li>
+<li><strong>IANA Service Registry</strong> — for IETF-registered services</li>
+<li><strong>Microservice discovery via Consul / Eureka</strong> — modern equivalents</li>
+</ul>
+<hr>
+<h3 id="experiment-4--jaxr-uddi-registry-browser-3-page-report">Experiment 4 — JAXR (UDDI) Registry Browser: 3-Page Report</h3>
+<p><strong>Objective:</strong> Provide a comprehensive 3-page report on the JAXR Registry Browser interface, covering the Submissions tab, Organization structure, Primary Contact, Classifications, and Service Binding.</p>
+<h4 id="41-uddi-data-model-overview">4.1 UDDI Data Model Overview</h4>
+<p>UDDI organizes information into four core data structures, known as the &quot;four tModels&quot;:</p>
+<pre><code class="language-mermaid"><div class="mermaid">classDiagram
+    class BusinessEntity {
+        +String businessKey
+        +String name
+        +String description
+        +List~Contact~ contacts
+        +List~BusinessService~ services
+        +CategoryBag classifications
+    }
+    class Contact {
+        +String personName
+        +String useType
+        +List~Phone~ phones
+        +List~Email~ emails
+        +List~Address~ addresses
+    }
+    class BusinessService {
+        +String serviceKey
+        +String name
+        +String description
+        +List~BindingTemplate~ bindingTemplates
+    }
+    class BindingTemplate {
+        +String bindingKey
+        +String accessURI
+        +TModelInstanceDetails tModelRef
+    }
+    class TModel {
+        +String tModelKey
+        +String name
+        +String description
+        +String wsdlURL
+    }
+
+    BusinessEntity "1" --> "*" Contact : has
+    BusinessEntity "1" --> "*" BusinessService : publishes
+    BusinessService "1" --> "*" BindingTemplate : has
+    BindingTemplate "*" --> "1" TModel : references
+</div></code></pre>
+<h4 id="42-the-submissions-tab">4.2 The Submissions Tab</h4>
+<p>The <strong>Submissions</strong> tab of the JAXR Registry Browser is the primary interface for publishing a new business entity to a UDDI registry. The workflow is as follows:</p>
+<p><strong>Step 1 — Connect to Registry</strong>
+The user selects a registry from the dropdown (e.g., IBM Test Registry) and authenticates with a UDDI publisher account. Authentication uses HTTPS and UDDI's publisher API.</p>
+<p><strong>Step 2 — Define the Organization</strong>
+A new <code>BusinessEntity</code> object is created with the following fields:</p>
+<pre class="hljs"><code><div>┌─────────────────────────────────────────────────────────────────────┐
+│  New Organization — Submissions Tab                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│  Name:          Haramaya University Web Services Lab                │
+│  Description:   A demo organization for JWSDP lab exercises         │
+│  Language:      en                                                   │
+│  Business Key:  [Auto-generated UUID on submission]                 │
+└─────────────────────────────────────────────────────────────────────┘
+</div></code></pre>
+<p><strong>Step 3 — Add Primary Contact</strong></p>
+<pre class="hljs"><code><div>┌─────────────────────────────────────────────────────────────────────┐
+│  Primary Contact Details                                             │
+├─────────────────────────────────────────────────────────────────────┤
+│  Person Name:   Oliyad Dandena                                      │
+│  Use Type:      primary                                             │
+│  Phone:         +251-XXX-XXX-XXX                                   │
+│  Email:         oliyad@haramaya.edu.et                             │
+│  Address:                                                           │
+│    Street:      Haramaya University Campus                         │
+│    City:        Dire Dawa                                           │
+│    Country:     Ethiopia                                            │
+│    Postal Code: 138                                                 │
+└─────────────────────────────────────────────────────────────────────┘
+</div></code></pre>
+<p><strong>Step 4 — Classifications</strong>
+Classifications associate the organization with industry taxonomies. Two major taxonomies are used in UDDI:</p>
+<table>
+<thead>
+<tr>
+<th>Taxonomy</th>
+<th>Code System</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NAICS 2002</strong></td>
+<td><code>uddi:ubr.uddi.org:taxonomy:ntis-gov:naics:2002</code></td>
+<td>North American Industry Classification System — categorizes the type of business</td>
+</tr>
+<tr>
+<td><strong>UNSPSC</strong></td>
+<td><code>uddi:ubr.uddi.org:taxonomy:un:unspsc:73.1</code></td>
+<td>UN Standard Products and Services Code — categorizes what the organization sells</td>
+</tr>
+<tr>
+<td><strong>ISO 3166</strong></td>
+<td><code>uddi:uddi.org:taxonomy:iso-ch:3166-1999</code></td>
+<td>Geographic classification by country/region</td>
+</tr>
+</tbody>
+</table>
+<p>Example classifications for our lab organization:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">categoryBag</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- NAICS: Computer Systems Design Services --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">keyedReference</span>
+    <span class="hljs-attr">tModelKey</span>=<span class="hljs-string">&quot;uddi:ubr.uddi.org:taxonomy:ntis-gov:naics:2002&quot;</span>
+    <span class="hljs-attr">keyName</span>=<span class="hljs-string">&quot;Computer Systems Design Services&quot;</span>
+    <span class="hljs-attr">keyValue</span>=<span class="hljs-string">&quot;541512&quot;</span>/&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- UNSPSC: Computer Services --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">keyedReference</span>
+    <span class="hljs-attr">tModelKey</span>=<span class="hljs-string">&quot;uddi:ubr.uddi.org:taxonomy:un:unspsc:73.1&quot;</span>
+    <span class="hljs-attr">keyName</span>=<span class="hljs-string">&quot;Software as a service or SaaS&quot;</span>
+    <span class="hljs-attr">keyValue</span>=<span class="hljs-string">&quot;81111700&quot;</span>/&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- ISO 3166: Ethiopia --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">keyedReference</span>
+    <span class="hljs-attr">tModelKey</span>=<span class="hljs-string">&quot;uddi:uddi.org:taxonomy:iso-ch:3166-1999&quot;</span>
+    <span class="hljs-attr">keyName</span>=<span class="hljs-string">&quot;Ethiopia&quot;</span>
+    <span class="hljs-attr">keyValue</span>=<span class="hljs-string">&quot;ET&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">categoryBag</span>&gt;</span>
+</div></code></pre>
+<p><strong>Step 5 — Service Binding</strong></p>
+<p>A <code>BusinessService</code> defines a logical service, and its <code>BindingTemplate</code> specifies where and how to access it:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">businessService</span>
+    <span class="hljs-attr">serviceKey</span>=<span class="hljs-string">&quot;uddi:haramaya.edu.et:lab-webservice-v1&quot;</span>
+    <span class="hljs-attr">businessKey</span>=<span class="hljs-string">&quot;uddi:haramaya.edu.et:lab-org&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">name</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>Lab Servlet Service<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">description</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>A demonstration web service<span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">bindingTemplates</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">bindingTemplate</span>
+        <span class="hljs-attr">bindingKey</span>=<span class="hljs-string">&quot;uddi:haramaya.edu.et:lab-servlet-binding&quot;</span>&gt;</span>
+      <span class="hljs-comment">&lt;!-- AccessPoint: where to reach the service --&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">accessPoint</span> <span class="hljs-attr">useType</span>=<span class="hljs-string">&quot;wsdlDeployment&quot;</span>&gt;</span>
+        http://localhost:8080/YourApp/hello
+      <span class="hljs-tag">&lt;/<span class="hljs-name">accessPoint</span>&gt;</span>
+      <span class="hljs-comment">&lt;!-- tModel reference: describes the service interface --&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tModelInstanceDetails</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tModelInstanceInfo</span>
+            <span class="hljs-attr">tModelKey</span>=<span class="hljs-string">&quot;uddi:haramaya.edu.et:lab-servlet-tmodel&quot;</span>/&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tModelInstanceDetails</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">bindingTemplate</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">bindingTemplates</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">businessService</span>&gt;</span>
+</div></code></pre>
+<h4 id="43-jaxr-java-api--publishing-an-organization">4.3 JAXR Java API — Publishing an Organization</h4>
+<pre class="hljs"><code><div><span class="hljs-comment">// JAXR connection setup</span>
+<span class="hljs-type">Properties</span> <span class="hljs-variable">props</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Properties</span>();
+props.setProperty(<span class="hljs-string">&quot;javax.xml.registry.queryManagerURL&quot;</span>,
+    <span class="hljs-string">&quot;https://uddi.ibm.com/testregistry/inquiryapi&quot;</span>);
+props.setProperty(<span class="hljs-string">&quot;javax.xml.registry.lifeCycleManagerURL&quot;</span>,
+    <span class="hljs-string">&quot;https://uddi.ibm.com/testregistry/publishapi&quot;</span>);
+
+<span class="hljs-type">ConnectionFactory</span> <span class="hljs-variable">factory</span> <span class="hljs-operator">=</span> ConnectionFactory.newInstance();
+factory.setProperties(props);
+<span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> factory.createConnection();
+
+<span class="hljs-comment">// Authenticate</span>
+<span class="hljs-type">PasswordAuthentication</span> <span class="hljs-variable">pa</span> <span class="hljs-operator">=</span>
+    <span class="hljs-keyword">new</span> <span class="hljs-title class_">PasswordAuthentication</span>(<span class="hljs-string">&quot;username&quot;</span>, <span class="hljs-string">&quot;password&quot;</span>.toCharArray());
+Set&lt;PasswordAuthentication&gt; creds = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;();
+creds.add(pa);
+connection.setCredentials(creds);
+
+<span class="hljs-type">RegistryService</span> <span class="hljs-variable">rs</span> <span class="hljs-operator">=</span> connection.getRegistryService();
+<span class="hljs-type">BusinessLifeCycleManager</span> <span class="hljs-variable">blcm</span> <span class="hljs-operator">=</span> rs.getBusinessLifeCycleManager();
+<span class="hljs-type">BusinessQueryManager</span> <span class="hljs-variable">bqm</span> <span class="hljs-operator">=</span> rs.getBusinessQueryManager();
+
+<span class="hljs-comment">// Create organization</span>
+<span class="hljs-type">InternationalString</span> <span class="hljs-variable">orgName</span> <span class="hljs-operator">=</span> blcm.createInternationalString(<span class="hljs-string">&quot;Haramaya Lab&quot;</span>);
+<span class="hljs-type">Organization</span> <span class="hljs-variable">org</span> <span class="hljs-operator">=</span> blcm.createOrganization(orgName);
+
+<span class="hljs-comment">// Create primary contact</span>
+<span class="hljs-type">User</span> <span class="hljs-variable">primaryContact</span> <span class="hljs-operator">=</span> blcm.createUser();
+<span class="hljs-type">PersonName</span> <span class="hljs-variable">pName</span> <span class="hljs-operator">=</span> blcm.createPersonName(<span class="hljs-string">&quot;Oliyad Dandena&quot;</span>);
+primaryContact.setPersonName(pName);
+org.setPrimaryContact(primaryContact);
+
+<span class="hljs-comment">// Save to registry</span>
+Collection&lt;Organization&gt; orgs = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+orgs.add(org);
+<span class="hljs-type">BulkResponse</span> <span class="hljs-variable">br</span> <span class="hljs-operator">=</span> blcm.saveOrganizations(orgs);
+</div></code></pre>
+<h4 id="44-submissions-tab-workflow">4.4 Submissions Tab Workflow</h4>
+<pre><code class="language-mermaid"><div class="mermaid">sequenceDiagram
+    participant U as User / JAXR Browser
+    participant JAXR as JAXR API Layer
+    participant UDDI as UDDI Registry Server
+
+    U->>JAXR: createOrganization(name, contacts, classifications)
+    U->>JAXR: createService(name, description)
+    U->>JAXR: createBindingTemplate(accessURI, tModelRef)
+    U->>JAXR: saveOrganizations([org])
+    JAXR->>UDDI: HTTPS POST /publishapi (SOAP)
+    UDDI-->>JAXR: businessKey UUID
+    JAXR-->>U: BulkResponse (SUCCESS / FAILURE)
+    U->>JAXR: findOrganizations(name="Haramaya")
+    JAXR->>UDDI: HTTPS GET /inquiryapi
+    UDDI-->>JAXR: BusinessList
+    JAXR-->>U: Display in Registry Tree
+</div></code></pre>
+<hr>
+<h3 id="experiment-5--tomcat-default-homepage-localhost8080">Experiment 5 — Tomcat Default Homepage (localhost:8080)</h3>
+<p><strong>Objective:</strong> Access <code>http://localhost:8080</code> and write a half-page report on the Tomcat default welcome page.</p>
+<h4 id="description">Description</h4>
+<p>When Apache Tomcat 5.0 is successfully started and <code>http://localhost:8080</code> is accessed in a web browser, the <strong>Tomcat Default Welcome Page</strong> is displayed. This page is served by the ROOT web application located in <code>webapps/ROOT/index.jsp</code>.</p>
+<h4 id="simulated-browser-output">Simulated Browser Output</h4>
+<pre class="hljs"><code><div>╔══════════════════════════════════════════════════════════════════════════╗
+║  🌐  http://localhost:8080                                              ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║                                                                          ║
+║   ╔══════════════════════════════════════════════════════════════╗       ║
+║   ║         If you&#x27;re seeing this, Tomcat is running!           ║       ║
+║   ║                                                              ║       ║
+║   ║    🐱  The Mighty Tomcat — MEOW!                            ║       ║
+║   ║                                                              ║       ║
+║   ║    [ Administration ]  [ Documentation ]  [ Examples ]      ║       ║
+║   ╚══════════════════════════════════════════════════════════════╝       ║
+║                                                                          ║
+║   Congratulations! Apache Tomcat/5.0 has been successfully installed.   ║
+║                                                                          ║
+║   This page is provided by the default web application, which resides   ║
+║   in the /ROOT directory of your Tomcat installation directory.         ║
+║                                                                          ║
+║   Links:                                                                 ║
+║   ● Tomcat Administration Tool   → /admin                               ║
+║   ● Tomcat Manager Application   → /manager/html                        ║
+║   ● Documentation                → /tomcat-docs                         ║
+║   ● Servlet and JSP Examples     → /servlets-examples, /jsp-examples    ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+</div></code></pre>
+<h4 id="analysis">Analysis</h4>
+<p>The Tomcat 5.0 default homepage serves as a launchpad to all administrative and educational resources bundled with the server. It prominently displays the <strong>Jakarta Project</strong> banner (Tomcat was a Jakarta Project before becoming a top-level Apache project). The page confirms a successful installation and provides direct hyperlinks to:</p>
+<ul>
+<li><strong>Administration Tool</strong> — JMX-based server management via Struts UI</li>
+<li><strong>Tomcat Manager</strong> — deploy, undeploy, start and stop webapps</li>
+<li><strong>Documentation</strong> — embedded <code>/tomcat-docs</code> web application</li>
+<li><strong>Examples</strong> — servlet and JSP demonstration applications</li>
+</ul>
+<blockquote>
+<p><strong>✅ Indicator:</strong> Seeing this page confirms that the JVM, CATALINA environment variables, and HTTP connector on port 8080 are all correctly configured.</p>
+</blockquote>
+<hr>
+<h3 id="experiment-6--tomcat-administration-console-adminframesetjsp">Experiment 6 — Tomcat Administration Console (/admin/frameset.jsp)</h3>
+<p><strong>Objective:</strong> Access <code>http://localhost:8080/admin/frameset.jsp</code> and write a half-page report.</p>
+<h4 id="description-1">Description</h4>
+<p>The Tomcat Administration Tool is a web-based management interface built using <strong>Apache Struts</strong> (an MVC web framework). It provides a GUI for configuring Tomcat's internal components via <strong>JMX (Java Management Extensions) MBeans</strong>.</p>
+<h4 id="simulated-browser-layout">Simulated Browser Layout</h4>
+<pre class="hljs"><code><div>╔══════════════════════════════════════════════════════════════════════════╗
+║  🌐  http://localhost:8080/admin/frameset.jsp                           ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║  ┌─────────────────┐  ┌───────────────────────────────────────────────┐ ║
+║  │  📋 Server Tree │  │  Server Information                           │ ║
+║  │─────────────────│  │───────────────────────────────────────────────│ ║
+║  │ ▼ Tomcat Server │  │  Tomcat Version:  5.0.x                       │ ║
+║  │   ▼ Service     │  │  JVM Version:     1.8.0_xxx                   │ ║
+║  │     Connector   │  │  JVM Vendor:      Oracle Corporation           │ ║
+║  │     ▼ Engine    │  │  OS Name:         Linux                        │ ║
+║  │       ▼ Host    │  │  OS Version:      5.15.x                       │ ║
+║  │         Context │  │  OS Architecture: amd64                        │ ║
+║  └─────────────────┘  └───────────────────────────────────────────────┘ ║
+╚══════════════════════════════════════════════════════════════════════════╝
+</div></code></pre>
+<h4 id="key-features">Key Features</h4>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Server Tree</strong></td>
+<td>Left-frame navigation showing the Tomcat component hierarchy</td>
+</tr>
+<tr>
+<td><strong>Connectors</strong></td>
+<td>Configure HTTP and AJP connectors (port, maxThreads, timeout)</td>
+</tr>
+<tr>
+<td><strong>Hosts</strong></td>
+<td>Configure virtual hosts under the Catalina engine</td>
+</tr>
+<tr>
+<td><strong>Contexts</strong></td>
+<td>View and modify deployed web application contexts</td>
+</tr>
+<tr>
+<td><strong>Resources</strong></td>
+<td>Configure JNDI data sources, user databases, and mail sessions</td>
+</tr>
+<tr>
+<td><strong>Save / Commit</strong></td>
+<td>Changes are written to <code>server.xml</code> and <code>context.xml</code> on save</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> Accessing this page requires authentication. The credentials are stored in <code>conf/tomcat-users.xml</code> — the user must have the <code>admin</code> role:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">user</span> <span class="hljs-attr">username</span>=<span class="hljs-string">&quot;admin&quot;</span> <span class="hljs-attr">password</span>=<span class="hljs-string">&quot;admin&quot;</span> <span class="hljs-attr">roles</span>=<span class="hljs-string">&quot;admin&quot;</span>/&gt;</span>
+</div></code></pre>
+</blockquote>
+<hr>
+<h3 id="experiment-7--tomcat-manager-application-managerhtml">Experiment 7 — Tomcat Manager Application (/manager/html)</h3>
+<p><strong>Objective:</strong> Access <code>http://localhost:8080/manager/html</code> and write a half-page report on the deployed web applications and management controls.</p>
+<h4 id="description-2">Description</h4>
+<p>The <strong>Tomcat Web Application Manager</strong> is a built-in application that provides complete lifecycle management for deployed web applications. Unlike the Admin Tool which manages server configuration, the Manager focuses on <strong>application deployment and control</strong>.</p>
+<h4 id="simulated-manager-interface">Simulated Manager Interface</h4>
+<pre class="hljs"><code><div>╔══════════════════════════════════════════════════════════════════════════════╗
+║  🌐  http://localhost:8080/manager/html                                     ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║  Tomcat Web Application Manager                                              ║
+║─────────────────────────────────────────────────────────────────────────────║
+║  Applications:                                                               ║
+║                                                                              ║
+║  Path             Running  Sessions  Actions                                 ║
+║  /                true     0         [Stop] [Reload] [Undeploy]             ║
+║  /admin           true     1         [Stop] [Reload] [Undeploy]             ║
+║  /balancer        true     0         [Stop] [Reload] [Undeploy]             ║
+║  /jsp-examples    true     0         [Stop] [Reload] [Undeploy]             ║
+║  /manager         true     1         [Stop] [Reload] [Undeploy]             ║
+║  /servlets-examples true   0         [Stop] [Reload] [Undeploy]             ║
+║  /tomcat-docs     true     0         [Stop] [Reload] [Undeploy]             ║
+║  /webdav          true     0         [Stop] [Reload] [Undeploy]             ║
+║  /YourApp         true     0         [Stop] [Reload] [Undeploy]             ║
+║─────────────────────────────────────────────────────────────────────────────║
+║  Deploy:  WAR file location: [                    ] [Deploy]                ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+</div></code></pre>
+<h4 id="available-management-actions">Available Management Actions</h4>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Start</strong></td>
+<td>Starts a previously stopped web application</td>
+</tr>
+<tr>
+<td><strong>Stop</strong></td>
+<td>Stops the application; returns 503 for all requests to its context</td>
+</tr>
+<tr>
+<td><strong>Reload</strong></td>
+<td>Reloads the application without restarting Tomcat (picks up new classes)</td>
+</tr>
+<tr>
+<td><strong>Undeploy</strong></td>
+<td>Removes the application and deletes its directory from <code>webapps/</code></td>
+</tr>
+<tr>
+<td><strong>Deploy</strong></td>
+<td>Uploads and deploys a new WAR file or references a WAR path on disk</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Access Control:</strong> The Manager requires <code>manager</code> role in <code>tomcat-users.xml</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">user</span> <span class="hljs-attr">username</span>=<span class="hljs-string">&quot;tomcat&quot;</span> <span class="hljs-attr">password</span>=<span class="hljs-string">&quot;tomcat&quot;</span> <span class="hljs-attr">roles</span>=<span class="hljs-string">&quot;manager&quot;</span>/&gt;</span>
+</div></code></pre>
+</blockquote>
+<hr>
+<h3 id="experiment-8--tomcat-documentation-tomcat-docs">Experiment 8 — Tomcat Documentation (/tomcat-docs/)</h3>
+<p><strong>Objective:</strong> Access <code>http://localhost:8080/tomcat-docs/</code> and write a half-page report.</p>
+<h4 id="description-3">Description</h4>
+<p>The <code>/tomcat-docs/</code> web application serves the complete <strong>Apache Tomcat 5.0 official documentation</strong> directly from the server. This is extremely convenient as it does not require internet access and is always synchronized with the exact version of Tomcat being used.</p>
+<h4 id="documentation-structure">Documentation Structure</h4>
+<pre class="hljs"><code><div>╔══════════════════════════════════════════════════════════════════════════╗
+║  🌐  http://localhost:8080/tomcat-docs/                                 ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║  Apache Tomcat 5.0 Documentation                                         ║
+║─────────────────────────────────────────────────────────────────────────║
+║  Getting Started                                                         ║
+║    ├─ 01. Introduction          ├─ 10. Classloading                     ║
+║    ├─ 02. Setup Guide           ├─ 11. JSPs                             ║
+║    ├─ 03. First Web Application ├─ 12. SSL/TLS Configuration            ║
+║    ├─ 04. Deployer Guide        ├─ 13. SSI (Server-Side Includes)       ║
+║    ├─ 05. Manager App Guide     ├─ 14. CGI                              ║
+║    ├─ 06. Host Manager App      ├─ 15. Proxy Support                    ║
+║    ├─ 07. Realm Configuration   ├─ 16. Clustering / Session Replication ║
+║    ├─ 08. Security Manager      ├─ 17. Load Balancer                    ║
+║    └─ 09. JNDI DataSources      └─ 18. Virtual Hosting                 ║
+║                                                                          ║
+║  Reference:                                                              ║
+║    ├─ Servlet 2.4 API           └─ JSP 2.0 API Javadocs                ║
+╚══════════════════════════════════════════════════════════════════════════╝
+</div></code></pre>
+<p>The documentation is static HTML rendered from the original DocBook XML source. Each chapter addresses a specific operational concern of running Tomcat in development and production environments. Of particular relevance to this lab are <strong>Chapter 3</strong> (First Web Application), <strong>Chapter 5</strong> (Manager App), and <strong>Chapter 8</strong> (Security Manager).</p>
+<hr>
+<h3 id="experiment-9--application-developer-guide-tomcat-docsappdevindexhtml">Experiment 9 — Application Developer Guide (/tomcat-docs/appdev/index.html)</h3>
+<p><strong>Objective:</strong> Access the Application Developer's Guide and write a half-page report.</p>
+<h4 id="description-4">Description</h4>
+<p>The <strong>Application Developer's Guide</strong> is authored by <strong>Craig R. McClanahan</strong>, the original creator of the <strong>Apache Struts</strong> MVC framework and a principal architect of Java EE web standards. It is one of the most important reference documents for understanding how to build standard Java web applications for deployment in Tomcat.</p>
+<h4 id="standard-web-application-layout-as-documented">Standard Web Application Layout (as documented)</h4>
+<p>The guide prescribes a specific directory layout for all Java web applications:</p>
+<pre class="hljs"><code><div>myapp/
+├── src/                          ← Java source files
+│   └── com/example/MyServlet.java
+├── web/                          ← Web content (served to clients)
+│   ├── index.html
+│   ├── images/
+│   └── WEB-INF/                  ← Private — never directly accessible
+│       ├── web.xml               ← Deployment descriptor
+│       ├── classes/              ← Compiled .class files
+│       └── lib/                  ← JAR dependencies
+├── docs/                         ← Project documentation
+└── build.xml                     ← Ant build script
+</div></code></pre>
+<h4 id="key-topics-covered">Key Topics Covered</h4>
+<table>
+<thead>
+<tr>
+<th>Chapter</th>
+<th>Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source Organization</td>
+<td>How to organize source code and web content</td>
+</tr>
+<tr>
+<td>Development Processes</td>
+<td>Edit → Compile → Test workflow</td>
+</tr>
+<tr>
+<td>Web Application Deployment</td>
+<td>Understanding WAR files and context paths</td>
+</tr>
+<tr>
+<td>Building with Ant</td>
+<td><code>build.xml</code> targets for compile, test, deploy</td>
+</tr>
+<tr>
+<td>Using Manager App</td>
+<td>Deploying via <code>ant install</code> and <code>ant reload</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>✅ This guide directly informed the structure of our <code>YourApp</code> project</strong>, which follows the standard <code>src/</code>, <code>web/WEB-INF/</code>, and <code>build.xml</code> layout.</p>
+</blockquote>
+<hr>
+<h3 id="experiment-10--ant-build-file-analysis-tomcat-docsappdevsamplebuildxml">Experiment 10 — Ant Build File Analysis (/tomcat-docs/appdev/sample/build.xml)</h3>
+<p><strong>Objective:</strong> Examine the sample <code>build.xml</code> provided in the Tomcat Application Developer's Guide.</p>
+<h4 id="description-5">Description</h4>
+<p>The sample <code>build.xml</code> in the Tomcat documentation demonstrates a complete Ant-based continuous integration workflow for a Java web application. It includes both standard Ant tasks and Tomcat-specific <strong>Catalina custom tasks</strong> for hot deployment.</p>
+<h4 id="catalina-custom-tasks">Catalina Custom Tasks</h4>
+<p>The Tomcat documentation sample <code>build.xml</code> extends standard Ant with Tomcat manager API tasks:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">taskdef</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;install&quot;</span> <span class="hljs-attr">classname</span>=<span class="hljs-string">&quot;org.apache.catalina.ant.InstallTask&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">classpath</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">pathelement</span> <span class="hljs-attr">location</span>=<span class="hljs-string">&quot;${catalina.home}/server/lib/catalina-ant.jar&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">classpath</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">taskdef</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">taskdef</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;reload&quot;</span>  <span class="hljs-attr">classname</span>=<span class="hljs-string">&quot;org.apache.catalina.ant.ReloadTask&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">taskdef</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;remove&quot;</span>  <span class="hljs-attr">classname</span>=<span class="hljs-string">&quot;org.apache.catalina.ant.RemoveTask&quot;</span>/&gt;</span>
+</div></code></pre>
+<h4 id="standard-build-targets">Standard Build Targets</h4>
+<table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Depends On</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>prepare</code></td>
+<td>—</td>
+<td>Creates build directory structure</td>
+</tr>
+<tr>
+<td><code>compile</code></td>
+<td><code>prepare</code></td>
+<td>Compiles <code>.java</code> → <code>.class</code></td>
+</tr>
+<tr>
+<td><code>dist</code></td>
+<td><code>compile</code></td>
+<td>Packages compiled app into a <code>.war</code> file</td>
+</tr>
+<tr>
+<td><code>clean</code></td>
+<td>—</td>
+<td>Deletes all generated files</td>
+</tr>
+<tr>
+<td><code>install</code></td>
+<td><code>dist</code></td>
+<td>Deploys WAR to running Tomcat via Manager API</td>
+</tr>
+<tr>
+<td><code>reload</code></td>
+<td>—</td>
+<td>Reloads the context in Tomcat without redeployment</td>
+</tr>
+<tr>
+<td><code>remove</code></td>
+<td>—</td>
+<td>Undeploys the application from Tomcat</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="experiment-11--security-manager-how-to-tomcat-docssecurity-manager-howtohtml">Experiment 11 — Security Manager How-To (/tomcat-docs/security-manager-howto.html)</h3>
+<p><strong>Objective:</strong> Study the Security Manager configuration documentation and write a half-page report.</p>
+<h4 id="description-6">Description</h4>
+<p>The <strong>Java Security Manager</strong> is a JVM mechanism that enforces fine-grained access control policies on Java code. When Tomcat is run with the Security Manager enabled (via <code>catalina.sh -security</code>), all code — both Tomcat's own code and deployed web applications — must have explicit permission grants defined in a <strong>policy file</strong>.</p>
+<h4 id="key-concepts">Key Concepts</h4>
+<p><strong>The Policy File — <code>conf/catalina.policy</code></strong></p>
+<p>Tomcat's security policy is defined in <code>conf/catalina.policy</code>. It uses standard Java <code>java.security.Policy</code> syntax:</p>
+<pre class="hljs"><code><div>// Grant Tomcat core unlimited permissions
+grant codeBase &quot;file:${catalina.home}/bin/bootstrap.jar&quot; {
+    permission java.security.AllPermission;
+};
+
+// Grant specific permissions to web applications
+grant codeBase &quot;file:${catalina.home}/webapps/YourApp/-&quot; {
+    permission java.net.SocketPermission &quot;localhost:8080&quot;, &quot;connect&quot;;
+    permission java.io.FilePermission &quot;${catalina.home}/webapps/YourApp/-&quot;, &quot;read&quot;;
+};
+</div></code></pre>
+<h4 id="permission-types">Permission Types</h4>
+<table>
+<thead>
+<tr>
+<th>Permission Class</th>
+<th>Controls Access To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>java.io.FilePermission</code></td>
+<td>File system read/write/execute/delete</td>
+</tr>
+<tr>
+<td><code>java.net.SocketPermission</code></td>
+<td>Network connections and listening</td>
+</tr>
+<tr>
+<td><code>java.lang.RuntimePermission</code></td>
+<td>JVM-level operations (threads, class loaders)</td>
+</tr>
+<tr>
+<td><code>java.security.SecurityPermission</code></td>
+<td>Security framework operations</td>
+</tr>
+<tr>
+<td><code>java.util.PropertyPermission</code></td>
+<td>System property access</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠️ Caution:</strong> Running without the Security Manager (the default) grants all deployed web applications full JVM privileges. For production environments serving untrusted code, enabling the Security Manager is strongly recommended.</p>
+</blockquote>
+<hr>
+<h3 id="experiment-12--serverxml-configuration-analysis">Experiment 12 — server.xml Configuration Analysis</h3>
+<p><strong>Objective:</strong> Analyze the <code>conf/server.xml</code> file — the master configuration file for Tomcat 5.0.</p>
+<h4 id="overview-1">Overview</h4>
+<p><code>server.xml</code> is the central configuration file for Tomcat. It defines the complete component hierarchy of the server using an XML structure that mirrors Tomcat's internal Java object hierarchy.</p>
+<h4 id="full-component-hierarchy">Full Component Hierarchy</h4>
+<pre><code class="language-mermaid"><div class="mermaid">graph TD
+    SERVER["🖥️ Server\nport=8005 — shutdown=SHUTDOWN"]
+    GNRES["📦 GlobalNamingResources\nJNDI Resources"]
+    SERVICE["⚙️ Service name=Catalina"]
+    CONN_HTTP["🌐 Connector\nport=8080 protocol=HTTP/1.1"]
+    CONN_AJP["🔗 Connector\nport=8009 protocol=AJP/1.3"]
+    ENGINE["🔧 Engine name=Catalina\ndefaultHost=localhost"]
+    HOST["🏠 Host name=localhost\nappBase=webapps"]
+    CONTEXT1["📁 Context path=/YourApp"]
+    CONTEXT2["📁 Context path=/ROOT"]
+    CONTEXT3["📁 Context path=/webdav"]
+
+    SERVER --> GNRES
+    SERVER --> SERVICE
+    SERVICE --> CONN_HTTP
+    SERVICE --> CONN_AJP
+    SERVICE --> ENGINE
+    ENGINE --> HOST
+    HOST --> CONTEXT1
+    HOST --> CONTEXT2
+    HOST --> CONTEXT3
+</div></code></pre>
+<h4 id="annotated-serverxml">Annotated server.xml</h4>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span>?&gt;</span>
+
+<span class="hljs-comment">&lt;!--
+  The &lt;Server&gt; element is the top-level element. It represents the entire
+  Tomcat instance. The &#x27;port&#x27; attribute specifies the TCP/IP port number
+  on which Tomcat will listen for a SHUTDOWN command.
+--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Server</span> <span class="hljs-attr">port</span>=<span class="hljs-string">&quot;8005&quot;</span> <span class="hljs-attr">shutdown</span>=<span class="hljs-string">&quot;SHUTDOWN&quot;</span> <span class="hljs-attr">debug</span>=<span class="hljs-string">&quot;0&quot;</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!--
+    GlobalNamingResources makes JNDI resources (like database pools)
+    available to all applications deployed on this server.
+  --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">GlobalNamingResources</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Resource</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;UserDatabase&quot;</span> <span class="hljs-attr">auth</span>=<span class="hljs-string">&quot;Container&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;org.apache.catalina.UserDatabase&quot;</span>
+      <span class="hljs-attr">description</span>=<span class="hljs-string">&quot;User database that can be updated and saved&quot;</span>
+      <span class="hljs-attr">factory</span>=<span class="hljs-string">&quot;org.apache.catalina.users.MemoryUserDatabaseFactory&quot;</span>
+      <span class="hljs-attr">pathname</span>=<span class="hljs-string">&quot;conf/tomcat-users.xml&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">GlobalNamingResources</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!--
+    A &lt;Service&gt; groups one Engine with one or more Connectors.
+    All Connectors in a Service share the same Engine for processing.
+  --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Service</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;Catalina&quot;</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--
+      The HTTP/1.1 Connector listens on port 8080.
+      connectionTimeout: how long to wait for the HTTP request line (ms).
+      redirectPort: if this connector receives an HTTPS request, redirect here.
+    --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Connector</span> <span class="hljs-attr">port</span>=<span class="hljs-string">&quot;8080&quot;</span> <span class="hljs-attr">maxHttpHeaderSize</span>=<span class="hljs-string">&quot;8192&quot;</span>
+               <span class="hljs-attr">maxThreads</span>=<span class="hljs-string">&quot;150&quot;</span> <span class="hljs-attr">minSpareThreads</span>=<span class="hljs-string">&quot;25&quot;</span> <span class="hljs-attr">maxSpareThreads</span>=<span class="hljs-string">&quot;75&quot;</span>
+               <span class="hljs-attr">enableLookups</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">redirectPort</span>=<span class="hljs-string">&quot;8443&quot;</span>
+               <span class="hljs-attr">acceptCount</span>=<span class="hljs-string">&quot;100&quot;</span> <span class="hljs-attr">connectionTimeout</span>=<span class="hljs-string">&quot;20000&quot;</span>
+               <span class="hljs-attr">disableUploadTimeout</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+
+    <span class="hljs-comment">&lt;!--
+      AJP Connector for integration with Apache httpd via mod_jk.
+      Port 8009 is the standard AJP port.
+    --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Connector</span> <span class="hljs-attr">port</span>=<span class="hljs-string">&quot;8009&quot;</span> <span class="hljs-attr">enableLookups</span>=<span class="hljs-string">&quot;false&quot;</span>
+               <span class="hljs-attr">redirectPort</span>=<span class="hljs-string">&quot;8443&quot;</span> <span class="hljs-attr">protocol</span>=<span class="hljs-string">&quot;AJP/1.3&quot;</span>/&gt;</span>
+
+    <span class="hljs-comment">&lt;!--
+      The Engine processes all requests received by its Connectors.
+      defaultHost: which Host handles requests with unrecognized Host: headers.
+    --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Engine</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;Catalina&quot;</span> <span class="hljs-attr">defaultHost</span>=<span class="hljs-string">&quot;localhost&quot;</span> <span class="hljs-attr">debug</span>=<span class="hljs-string">&quot;0&quot;</span>&gt;</span>
+
+      <span class="hljs-comment">&lt;!--
+        A Host represents a virtual host — a server that handles requests
+        for a particular hostname. appBase is where web apps are stored.
+        autoDeploy: automatically deploy new apps found in appBase.
+      --&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Host</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;localhost&quot;</span> <span class="hljs-attr">debug</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">appBase</span>=<span class="hljs-string">&quot;webapps&quot;</span>
+            <span class="hljs-attr">unpackWARs</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">autoDeploy</span>=<span class="hljs-string">&quot;true&quot;</span>
+            <span class="hljs-attr">xmlValidation</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">xmlNamespaceAware</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Host</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Engine</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Service</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">Server</span>&gt;</span>
+</div></code></pre>
+<h4 id="key-attribute-summary">Key Attribute Summary</h4>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Key Attributes</th>
+<th>Default Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;Server&gt;</code></td>
+<td>port, shutdown</td>
+<td>8005, SHUTDOWN</td>
+</tr>
+<tr>
+<td><code>&lt;Connector&gt;</code></td>
+<td>port, maxThreads, connectionTimeout</td>
+<td>8080, 150, 20000ms</td>
+</tr>
+<tr>
+<td><code>&lt;Engine&gt;</code></td>
+<td>name, defaultHost</td>
+<td>Catalina, localhost</td>
+</tr>
+<tr>
+<td><code>&lt;Host&gt;</code></td>
+<td>name, appBase, autoDeploy</td>
+<td>localhost, webapps, true</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="experiment-13--webapps-directory-context-paths-web-inf-and-war-files">Experiment 13 — webapps Directory, Context Paths, WEB-INF, and WAR Files</h3>
+<p><strong>Objective:</strong> Write a two-page report on the <code>webapps/</code> directory structure, context paths, the WEB-INF directory, and WAR file packaging.</p>
+<h4 id="131-the-webapps-directory">13.1 The webapps/ Directory</h4>
+<p>The <code>webapps/</code> directory is Tomcat's application base directory (<code>appBase</code>). Any directory or <code>.war</code> file placed here is automatically deployed by Tomcat when <code>autoDeploy=&quot;true&quot;</code> in <code>server.xml</code>.</p>
+<pre><code class="language-mermaid"><div class="mermaid">graph LR
+    WEBAPPS["📂 webapps/"]
+    ROOT["📂 ROOT/\nContext: /"]
+    ADMIN["📂 admin/\nContext: /admin"]
+    JSP_EX["📂 jsp-examples/\nContext: /jsp-examples"]
+    SERV_EX["📂 servlets-examples/\nContext: /servlets-examples"]
+    TDOCS["📂 tomcat-docs/\nContext: /tomcat-docs"]
+    WEBDAV["📂 webdav/\nContext: /webdav"]
+    MGR["📂 manager/\nContext: /manager"]
+    YOURAPP["📂 YourApp/\nContext: /YourApp"]
+
+    WEBAPPS --> ROOT
+    WEBAPPS --> ADMIN
+    WEBAPPS --> JSP_EX
+    WEBAPPS --> SERV_EX
+    WEBAPPS --> TDOCS
+    WEBAPPS --> WEBDAV
+    WEBAPPS --> MGR
+    WEBAPPS --> YOURAPP
+</div></code></pre>
+<h4 id="132-context-paths">13.2 Context Paths</h4>
+<p>A <strong>context path</strong> is the URL prefix that maps HTTP requests to a specific web application:</p>
+<table>
+<thead>
+<tr>
+<th>Directory</th>
+<th>Context Path</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ROOT/</code></td>
+<td><code>/</code> (empty)</td>
+<td><code>http://localhost:8080/</code></td>
+</tr>
+<tr>
+<td><code>admin/</code></td>
+<td><code>/admin</code></td>
+<td><code>http://localhost:8080/admin</code></td>
+</tr>
+<tr>
+<td><code>manager/</code></td>
+<td><code>/manager</code></td>
+<td><code>http://localhost:8080/manager</code></td>
+</tr>
+<tr>
+<td><code>tomcat-docs/</code></td>
+<td><code>/tomcat-docs</code></td>
+<td><code>http://localhost:8080/tomcat-docs</code></td>
+</tr>
+<tr>
+<td><code>jsp-examples/</code></td>
+<td><code>/jsp-examples</code></td>
+<td><code>http://localhost:8080/jsp-examples</code></td>
+</tr>
+<tr>
+<td><code>servlets-examples/</code></td>
+<td><code>/servlets-examples</code></td>
+<td><code>http://localhost:8080/servlets-examples</code></td>
+</tr>
+<tr>
+<td><code>webdav/</code></td>
+<td><code>/webdav</code></td>
+<td><code>http://localhost:8080/webdav</code></td>
+</tr>
+<tr>
+<td><code>YourApp/</code></td>
+<td><code>/YourApp</code></td>
+<td><code>http://localhost:8080/YourApp</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Rule:</strong> The directory name in <code>webapps/</code> <strong>becomes</strong> the context path, except <code>ROOT/</code> which maps to the empty context path <code>/</code>.</p>
+</blockquote>
+<h4 id="133-the-web-inf-directory">13.3 The WEB-INF Directory</h4>
+<p>The <code>WEB-INF/</code> directory is a <strong>private</strong> directory within every web application. Files inside <code>WEB-INF/</code> are <strong>never served directly</strong> to clients — Tomcat intercepts any request for <code>/WEB-INF/*</code> and returns a 404.</p>
+<pre class="hljs"><code><div>YourApp/
+├── index.html                  ← Publicly accessible
+├── images/logo.png             ← Publicly accessible
+└── WEB-INF/                    ← 🔒 Private — not directly accessible via HTTP
+    ├── web.xml                 ← Deployment descriptor (REQUIRED)
+    ├── classes/                ← Compiled servlet/class files
+    │   └── com/
+    │       └── example/
+    │           └── MyServlet.class
+    └── lib/                    ← JAR dependencies for this app only
+        └── some-library.jar
+</div></code></pre>
+<p><strong>The <code>web.xml</code> Deployment Descriptor</strong> is the most important file in <code>WEB-INF/</code>. It declares:</p>
+<ul>
+<li>Servlet definitions (<code>&lt;servlet&gt;</code>) — maps a name to a class</li>
+<li>Servlet mappings (<code>&lt;servlet-mapping&gt;</code>) — maps a URL pattern to a servlet name</li>
+<li>Session configuration, security constraints, MIME types, welcome files, error pages</li>
+</ul>
+<h4 id="134-war-files-web-application-archives">13.4 WAR Files (Web Application Archives)</h4>
+<p>A <strong>WAR (Web Application Archive)</strong> file is a ZIP-format file with a <code>.war</code> extension that bundles the entire web application into a single deployable unit. Tomcat automatically explodes WAR files into their directory form on deployment (when <code>unpackWARs=&quot;true&quot;</code>).</p>
+<p><strong>Creating a WAR file with Ant:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;war&quot;</span> <span class="hljs-attr">depends</span>=<span class="hljs-string">&quot;compile&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">war</span> <span class="hljs-attr">destfile</span>=<span class="hljs-string">&quot;${dist.dir}/YourApp.war&quot;</span> <span class="hljs-attr">webxml</span>=<span class="hljs-string">&quot;${web.dir}/WEB-INF/web.xml&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fileset</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${web.dir}&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lib</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${lib.dir}&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">classes</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${build.dir}/classes&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">war</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+</div></code></pre>
+<p><strong>WAR Internal Structure:</strong></p>
+<pre class="hljs"><code><div>YourApp.war  (ZIP format)
+├── index.html
+├── WEB-INF/
+│   ├── web.xml
+│   ├── classes/com/example/MyServlet.class
+│   └── lib/
+└── META-INF/
+    └── MANIFEST.MF
+</div></code></pre>
+<p><strong>Deployment Lifecycle:</strong></p>
+<ol>
+<li>Drop <code>YourApp.war</code> into <code>webapps/</code></li>
+<li>Tomcat detects it (via autoDeploy or on startup)</li>
+<li>Explodes it to <code>webapps/YourApp/</code></li>
+<li>Reads <code>WEB-INF/web.xml</code></li>
+<li>Registers context at <code>/YourApp</code></li>
+<li>Initializes declared servlets</li>
+</ol>
+<hr>
+<h3 id="experiment-14--webdavweb-infwebxml-analysis">Experiment 14 — webdav/WEB-INF/web.xml Analysis</h3>
+<p><strong>Objective:</strong> Analyze the <code>web.xml</code> deployment descriptor of the WebDAV web application bundled with Tomcat.</p>
+<h4 id="overview-2">Overview</h4>
+<p>The <code>webdav</code> web application provides a <strong>WebDAV (Web Distributed Authoring and Versioning)</strong> server built on top of a standard Tomcat servlet. WebDAV extends HTTP/1.1 with methods like <code>PROPFIND</code>, <code>MKCOL</code>, <code>COPY</code>, <code>MOVE</code>, <code>LOCK</code>, and <code>UNLOCK</code>, enabling collaborative file management over HTTP.</p>
+<h4 id="webdavweb-infwebxml">webdav/WEB-INF/web.xml</h4>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;ISO-8859-1&quot;</span>?&gt;</span>
+
+<span class="hljs-comment">&lt;!--
+  The DOCTYPE references the Servlet 2.3 DTD. Tomcat 5.0 actually supports
+  Servlet 2.4 (using XML Schema), but the bundled webdav app uses the older
+  DTD for maximum compatibility.
+--&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">web-app</span>
+    <span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">&quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</span>
+    <span class="hljs-string">&quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">web-app</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">display-name</span>&gt;</span>Tomcat WebDAV<span class="hljs-tag">&lt;/<span class="hljs-name">display-name</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--
+      DefaultServlet handles all requests not mapped to other servlets.
+      For WebDAV, DefaultServlet is replaced by WebdavServlet, which
+      understands all WebDAV HTTP extension methods.
+    --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">servlet</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>webdav<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">servlet-class</span>&gt;</span>
+            org.apache.catalina.servlets.WebdavServlet
+        <span class="hljs-tag">&lt;/<span class="hljs-name">servlet-class</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">init-param</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">param-name</span>&gt;</span>debug<span class="hljs-tag">&lt;/<span class="hljs-name">param-name</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">param-value</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">param-value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">init-param</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">init-param</span>&gt;</span>
+            <span class="hljs-comment">&lt;!-- Allow directory listing via PROPFIND --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">param-name</span>&gt;</span>listings<span class="hljs-tag">&lt;/<span class="hljs-name">param-name</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">param-value</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">param-value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">init-param</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">init-param</span>&gt;</span>
+            <span class="hljs-comment">&lt;!-- Allow write operations (PUT, DELETE, MKCOL) --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">param-name</span>&gt;</span>readonly<span class="hljs-tag">&lt;/<span class="hljs-name">param-name</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">param-value</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">param-value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">init-param</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">servlet</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- Map all URLs under /webdav/* to the WebDAV servlet --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">servlet-mapping</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>webdav<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/*<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">servlet-mapping</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--
+      HTTP Basic Authentication is used to protect write operations.
+      The realm name &quot;Tomcat WebDAV&quot; appears in the browser&#x27;s login dialog.
+    --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">security-constraint</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">web-resource-collection</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">web-resource-name</span>&gt;</span>All WebDAV Resources<span class="hljs-tag">&lt;/<span class="hljs-name">web-resource-name</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/*<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">http-method</span>&gt;</span>PUT<span class="hljs-tag">&lt;/<span class="hljs-name">http-method</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">http-method</span>&gt;</span>DELETE<span class="hljs-tag">&lt;/<span class="hljs-name">http-method</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">http-method</span>&gt;</span>MKCOL<span class="hljs-tag">&lt;/<span class="hljs-name">http-method</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">web-resource-collection</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">auth-constraint</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">role-name</span>&gt;</span>tomcat<span class="hljs-tag">&lt;/<span class="hljs-name">role-name</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">auth-constraint</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">security-constraint</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">login-config</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">auth-method</span>&gt;</span>BASIC<span class="hljs-tag">&lt;/<span class="hljs-name">auth-method</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">realm-name</span>&gt;</span>Tomcat WebDAV<span class="hljs-tag">&lt;/<span class="hljs-name">realm-name</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">login-config</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">security-role</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">role-name</span>&gt;</span>tomcat<span class="hljs-tag">&lt;/<span class="hljs-name">role-name</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">security-role</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span>
+</div></code></pre>
+<h4 id="key-observations">Key Observations</h4>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Value</th>
+<th>Significance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DTD Version</td>
+<td>Servlet 2.3</td>
+<td>Uses older DOCTYPE-based validation</td>
+</tr>
+<tr>
+<td>Servlet Class</td>
+<td><code>WebdavServlet</code></td>
+<td>Tomcat's built-in WebDAV implementation</td>
+</tr>
+<tr>
+<td><code>listings=true</code></td>
+<td>Enabled</td>
+<td>PROPFIND returns directory contents</td>
+</tr>
+<tr>
+<td><code>readonly=false</code></td>
+<td>Disabled</td>
+<td>Write operations (PUT, DELETE) allowed</td>
+</tr>
+<tr>
+<td>Auth Method</td>
+<td><code>BASIC</code></td>
+<td>HTTP Basic Auth over HTTP (not HTTPS)</td>
+</tr>
+<tr>
+<td>Protected Methods</td>
+<td>PUT, DELETE, MKCOL</td>
+<td>Read operations are unauthenticated</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠️ Security Note:</strong> The WebDAV servlet with <code>readonly=false</code> allows any authenticated user with the <code>tomcat</code> role to upload, overwrite, or delete files. In production, either disable write access (<code>readonly=true</code>) or use HTTPS to protect credentials.</p>
+</blockquote>
+<hr>
+<h3 id="experiment-15--apache-ant-build-tool-comprehensive-study">Experiment 15 — Apache Ant Build Tool: Comprehensive Study</h3>
+<p><strong>Objective:</strong> Write a four-page report on Apache Ant covering its core concepts, elements, tasks, and the build lifecycle.</p>
+<h4 id="151-introduction-to-apache-ant">15.1 Introduction to Apache Ant</h4>
+<p><strong>Apache Ant</strong> (Another Neat Tool) is a Java-based build automation tool developed by the Apache Software Foundation. Unlike traditional build tools such as GNU <code>make</code>, Ant:</p>
+<ul>
+<li>Uses <strong>XML-based build files</strong> (<code>build.xml</code>) instead of Makefiles</li>
+<li>Is <strong>platform-independent</strong> — the same build file works on Windows, Linux, and macOS</li>
+<li>Is <strong>extensible</strong> — custom tasks can be written in Java and loaded as libraries</li>
+<li>Has <strong>no shell dependency</strong> — avoids differences in shell syntax across operating systems</li>
+</ul>
+<p>Ant is driven by a single XML file (typically named <code>build.xml</code>) that describes a project's targets, tasks, and properties.</p>
+<h4 id="152-the-project-element">15.2 The <code>&lt;project&gt;</code> Element</h4>
+<p>The <code>&lt;project&gt;</code> element is the root element of every <code>build.xml</code> file. It defines three essential attributes:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;SimpleServletBuild&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;deploy&quot;</span> <span class="hljs-attr">basedir</span>=<span class="hljs-string">&quot;.&quot;</span>&gt;</span>
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>SimpleServletBuild</code></td>
+<td>Human-readable project name</td>
+</tr>
+<tr>
+<td><code>default</code></td>
+<td><code>deploy</code></td>
+<td>Target to execute when none is specified on CLI</td>
+</tr>
+<tr>
+<td><code>basedir</code></td>
+<td><code>.</code></td>
+<td>All relative paths resolve from this directory</td>
+</tr>
+</tbody>
+</table>
+<h4 id="153-the-property-element">15.3 The <code>&lt;property&gt;</code> Element</h4>
+<p>Properties in Ant are <strong>immutable name-value pairs</strong> (once set, they cannot be overridden). They act as variables throughout the build file.</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;src.dir&quot;</span>   <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;src&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;build.dir&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;build&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;web.dir&quot;</span>   <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;web&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;tomcat.home&quot;</span> <span class="hljs-attr">location</span>=<span class="hljs-string">&quot;${basedir}/../tomcat50-jwsdp&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;deploy.dir&quot;</span>  <span class="hljs-attr">location</span>=<span class="hljs-string">&quot;${tomcat.home}/webapps/YourApp&quot;</span>/&gt;</span>
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src.dir</code></td>
+<td><code>src</code></td>
+<td>Java source files directory</td>
+</tr>
+<tr>
+<td><code>build.dir</code></td>
+<td><code>build</code></td>
+<td>Output directory for compiled files</td>
+</tr>
+<tr>
+<td><code>web.dir</code></td>
+<td><code>web</code></td>
+<td>Web content (HTML, WEB-INF) directory</td>
+</tr>
+<tr>
+<td><code>tomcat.home</code></td>
+<td>Absolute path to Tomcat</td>
+<td>Root of Tomcat installation</td>
+</tr>
+<tr>
+<td><code>deploy.dir</code></td>
+<td><code>tomcat.home/webapps/YourApp</code></td>
+<td>Deployment target directory</td>
+</tr>
+</tbody>
+</table>
+<h4 id="154-the-path-and-classpath-element">15.4 The <code>&lt;path&gt;</code> and Classpath Element</h4>
+<p>The <code>&lt;path&gt;</code> element defines a reusable classpath that can be referenced by ID:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;compile.classpath&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">pathelement</span> <span class="hljs-attr">location</span>=<span class="hljs-string">&quot;${tomcat.home}/common/lib/servlet-api.jar&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span>
+</div></code></pre>
+<p>This classpath provides the <code>javax.servlet.*</code> classes needed to compile servlets without having to bundle the Servlet API in the web application itself (it is provided by Tomcat at runtime).</p>
+<h4 id="155-the-target-element-and-dependency-chains">15.5 The <code>&lt;target&gt;</code> Element and Dependency Chains</h4>
+<p>Targets are the fundamental unit of work in Ant. Each target represents a named phase of the build process:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;clean&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">delete</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${build.dir}&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;compile&quot;</span> <span class="hljs-attr">depends</span>=<span class="hljs-string">&quot;clean&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mkdir</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${build.dir}/classes&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">javac</span> <span class="hljs-attr">srcdir</span>=<span class="hljs-string">&quot;${src.dir}&quot;</span>
+           <span class="hljs-attr">destdir</span>=<span class="hljs-string">&quot;${build.dir}/classes&quot;</span>
+           <span class="hljs-attr">includeantruntime</span>=<span class="hljs-string">&quot;false&quot;</span>
+           <span class="hljs-attr">classpathref</span>=<span class="hljs-string">&quot;compile.classpath&quot;</span>
+           <span class="hljs-attr">source</span>=<span class="hljs-string">&quot;1.8&quot;</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;1.8&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;prepare&quot;</span> <span class="hljs-attr">depends</span>=<span class="hljs-string">&quot;compile&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mkdir</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${build.dir}/WEB-INF/classes&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">copy</span> <span class="hljs-attr">todir</span>=<span class="hljs-string">&quot;${build.dir}/WEB-INF/classes&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fileset</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${build.dir}/classes&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">copy</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">copy</span> <span class="hljs-attr">todir</span>=<span class="hljs-string">&quot;${build.dir}/WEB-INF&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fileset</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${web.dir}/WEB-INF&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">copy</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;deploy&quot;</span> <span class="hljs-attr">depends</span>=<span class="hljs-string">&quot;prepare&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mkdir</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${deploy.dir}&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">copy</span> <span class="hljs-attr">todir</span>=<span class="hljs-string">&quot;${deploy.dir}&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fileset</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${build.dir}&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">exclude</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;classes/**&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">fileset</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">copy</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">echo</span> <span class="hljs-attr">message</span>=<span class="hljs-string">&quot;Servlet deployed to ${deploy.dir}.&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+</div></code></pre>
+<h4 id="156-core-ant-tasks">15.6 Core Ant Tasks</h4>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Syntax Example</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;mkdir&gt;</code></td>
+<td><code>&lt;mkdir dir=&quot;${build.dir}&quot;/&gt;</code></td>
+<td>Creates directory (and parents)</td>
+</tr>
+<tr>
+<td><code>&lt;delete&gt;</code></td>
+<td><code>&lt;delete dir=&quot;${build.dir}&quot;/&gt;</code></td>
+<td>Deletes a file or directory tree</td>
+</tr>
+<tr>
+<td><code>&lt;javac&gt;</code></td>
+<td><code>&lt;javac srcdir=&quot;src&quot; destdir=&quot;build/classes&quot;/&gt;</code></td>
+<td>Compiles Java source files</td>
+</tr>
+<tr>
+<td><code>&lt;copy&gt;</code></td>
+<td><code>&lt;copy todir=&quot;dest&quot;&gt;&lt;fileset dir=&quot;src&quot;/&gt;&lt;/copy&gt;</code></td>
+<td>Copies files matching a pattern</td>
+</tr>
+<tr>
+<td><code>&lt;jar&gt;</code></td>
+<td><code>&lt;jar destfile=&quot;app.jar&quot; basedir=&quot;classes&quot;/&gt;</code></td>
+<td>Creates a JAR archive</td>
+</tr>
+<tr>
+<td><code>&lt;war&gt;</code></td>
+<td><code>&lt;war destfile=&quot;app.war&quot; webxml=&quot;web.xml&quot;/&gt;</code></td>
+<td>Creates a WAR archive</td>
+</tr>
+<tr>
+<td><code>&lt;echo&gt;</code></td>
+<td><code>&lt;echo message=&quot;Build complete!&quot;/&gt;</code></td>
+<td>Prints a message to console</td>
+</tr>
+<tr>
+<td><code>&lt;javadoc&gt;</code></td>
+<td><code>&lt;javadoc sourcepath=&quot;src&quot; destdir=&quot;docs&quot;/&gt;</code></td>
+<td>Generates API documentation</td>
+</tr>
+<tr>
+<td><code>&lt;junit&gt;</code></td>
+<td><code>&lt;junit fork=&quot;yes&quot;&gt;&lt;test name=&quot;MyTest&quot;/&gt;&lt;/junit&gt;</code></td>
+<td>Runs JUnit test cases</td>
+</tr>
+</tbody>
+</table>
+<h4 id="157-command-line-invocation">15.7 Command-Line Invocation</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Run the default target (deploy)</span>
+ant
+
+<span class="hljs-comment"># Run a specific target</span>
+ant compile
+
+<span class="hljs-comment"># Run with a custom build file</span>
+ant -f my-build.xml deploy
+
+<span class="hljs-comment"># Override a property</span>
+ant -Dtomcat.home=/opt/tomcat deploy
+
+<span class="hljs-comment"># Show all available targets</span>
+ant -projecthelp
+
+<span class="hljs-comment"># Verbose output</span>
+ant -verbose deploy
+</div></code></pre>
+<h4 id="158-ant-build-lifecycle-flowchart">15.8 Ant Build Lifecycle Flowchart</h4>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TD
+    A["ant deploy\nCommand invoked"] --> B["Parse build.xml"]
+    B --> C["Resolve target: deploy\nDependency chain: prepare → compile → clean"]
+    C --> D["Execute: clean\n🗑️ Delete build/ directory"]
+    D --> E["Execute: compile\n📂 mkdir build/classes\n☕ javac src/ → build/classes/"]
+    E --> F["Execute: prepare\n📂 mkdir build/WEB-INF/classes\n📋 copy .class files\n📋 copy web.xml"]
+    F --> G["Execute: deploy\n📂 mkdir tomcat50-jwsdp/webapps/YourApp\n📋 copy WEB-INF/ to deploy dir\n📢 echo message"]
+    G --> H["✅ BUILD SUCCESSFUL"]
+</div></code></pre>
+<h4 id="159-ant-vs-maven-vs-gradle">15.9 Ant vs. Maven vs. Gradle</h4>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Ant</th>
+<th>Maven</th>
+<th>Gradle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Build file format</td>
+<td>XML (build.xml)</td>
+<td>XML (pom.xml)</td>
+<td>Groovy/Kotlin DSL</td>
+</tr>
+<tr>
+<td>Dependency management</td>
+<td>Manual (copy JARs)</td>
+<td>Built-in (repositories)</td>
+<td>Built-in (repositories)</td>
+</tr>
+<tr>
+<td>Convention</td>
+<td>None (fully custom)</td>
+<td>Convention over config</td>
+<td>Hybrid</td>
+</tr>
+<tr>
+<td>Extensibility</td>
+<td>Java-based tasks</td>
+<td>Plugins</td>
+<td>Plugins (rich ecosystem)</td>
+</tr>
+<tr>
+<td>Age / Era</td>
+<td>Early 2000s</td>
+<td>Mid 2000s</td>
+<td>2012–present</td>
+</tr>
+<tr>
+<td>Used in JWSDP</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="experiment-16--servlet-compilation-and-deployment-via-apache-ant">Experiment 16 — Servlet Compilation and Deployment via Apache Ant</h3>
+<p><strong>Objective:</strong> Compile and deploy a Java servlet to Tomcat using Apache Ant, and demonstrate the outcome by accessing the deployed servlet.</p>
+<h4 id="161-source-files">16.1 Source Files</h4>
+<p><strong>File 1: <code>src/com/example/MyServlet.java</code></strong></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> com.example;
+
+<span class="hljs-keyword">import</span> java.io.IOException;
+<span class="hljs-keyword">import</span> javax.servlet.ServletException;
+<span class="hljs-keyword">import</span> javax.servlet.http.HttpServlet;
+<span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;
+<span class="hljs-keyword">import</span> javax.servlet.http.HttpServletResponse;
+
+<span class="hljs-comment">/**
+ * A minimal HttpServlet that responds with a plain-text greeting.
+ * Demonstrates Servlet 2.4 API usage with Tomcat 5.0 / JWSDP.
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyServlet</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">HttpServlet</span> {
+
+    <span class="hljs-comment">/**
+     * Handles HTTP GET requests.
+     * Sets the Content-Type to text/plain and writes a greeting message.
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span>
+            <span class="hljs-keyword">throws</span> ServletException, IOException {
+        resp.setContentType(<span class="hljs-string">&quot;text/plain&quot;</span>);
+        resp.getWriter().println(<span class="hljs-string">&quot;Hello from MyServlet!&quot;</span>);
+    }
+}
+</div></code></pre>
+<p><strong>File 2: <code>web/WEB-INF/web.xml</code></strong></p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;ISO-8859-1&quot;</span>?&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">web-app</span> <span class="hljs-keyword">PUBLIC</span>
+    <span class="hljs-string">&quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</span>
+    <span class="hljs-string">&quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">web-app</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">display-name</span>&gt;</span>YourApp Sample Web Application<span class="hljs-tag">&lt;/<span class="hljs-name">display-name</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- Register the servlet with a logical name --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">servlet</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>MyServlet<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">servlet-class</span>&gt;</span>com.example.MyServlet<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-class</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">servlet</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- Map the logical name to a URL pattern --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">servlet-mapping</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>MyServlet<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/hello<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">servlet-mapping</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span>
+</div></code></pre>
+<p><strong>File 3: <code>build.xml</code></strong></p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;SimpleServletBuild&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;deploy&quot;</span> <span class="hljs-attr">basedir</span>=<span class="hljs-string">&quot;.&quot;</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- ============================================================ --&gt;</span>
+    <span class="hljs-comment">&lt;!--  Property Definitions                                        --&gt;</span>
+    <span class="hljs-comment">&lt;!-- ============================================================ --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;src.dir&quot;</span>    <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;src&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;build.dir&quot;</span>  <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;build&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;web.dir&quot;</span>    <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;web&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;tomcat.home&quot;</span>
+              <span class="hljs-attr">location</span>=<span class="hljs-string">&quot;${basedir}/../tomcat50-jwsdp&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;deploy.dir&quot;</span>
+              <span class="hljs-attr">location</span>=<span class="hljs-string">&quot;${tomcat.home}/webapps/YourApp&quot;</span>/&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- ============================================================ --&gt;</span>
+    <span class="hljs-comment">&lt;!--  Compilation Classpath — Servlet API from Tomcat             --&gt;</span>
+    <span class="hljs-comment">&lt;!-- ============================================================ --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;compile.classpath&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">pathelement</span>
+            <span class="hljs-attr">location</span>=<span class="hljs-string">&quot;${tomcat.home}/common/lib/servlet-api.jar&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- ============================================================ --&gt;</span>
+    <span class="hljs-comment">&lt;!--  Target: clean — remove previous build artifacts             --&gt;</span>
+    <span class="hljs-comment">&lt;!-- ============================================================ --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;clean&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">delete</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${build.dir}&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- ============================================================ --&gt;</span>
+    <span class="hljs-comment">&lt;!--  Target: compile — compile Java sources                      --&gt;</span>
+    <span class="hljs-comment">&lt;!-- ============================================================ --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;compile&quot;</span> <span class="hljs-attr">depends</span>=<span class="hljs-string">&quot;clean&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mkdir</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${build.dir}/classes&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">javac</span> <span class="hljs-attr">srcdir</span>=<span class="hljs-string">&quot;${src.dir}&quot;</span>
+               <span class="hljs-attr">destdir</span>=<span class="hljs-string">&quot;${build.dir}/classes&quot;</span>
+               <span class="hljs-attr">includeantruntime</span>=<span class="hljs-string">&quot;false&quot;</span>
+               <span class="hljs-attr">classpathref</span>=<span class="hljs-string">&quot;compile.classpath&quot;</span>
+               <span class="hljs-attr">source</span>=<span class="hljs-string">&quot;1.8&quot;</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;1.8&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- ============================================================ --&gt;</span>
+    <span class="hljs-comment">&lt;!--  Target: prepare — assemble the web application structure    --&gt;</span>
+    <span class="hljs-comment">&lt;!-- ============================================================ --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;prepare&quot;</span> <span class="hljs-attr">depends</span>=<span class="hljs-string">&quot;compile&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mkdir</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${build.dir}/WEB-INF/classes&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">copy</span> <span class="hljs-attr">todir</span>=<span class="hljs-string">&quot;${build.dir}/WEB-INF/classes&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">fileset</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${build.dir}/classes&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">copy</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">copy</span> <span class="hljs-attr">todir</span>=<span class="hljs-string">&quot;${build.dir}/WEB-INF&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">fileset</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${web.dir}/WEB-INF&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">copy</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- ============================================================ --&gt;</span>
+    <span class="hljs-comment">&lt;!--  Target: deploy — copy assembled app to Tomcat webapps/      --&gt;</span>
+    <span class="hljs-comment">&lt;!-- ============================================================ --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">target</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;deploy&quot;</span> <span class="hljs-attr">depends</span>=<span class="hljs-string">&quot;prepare&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mkdir</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${deploy.dir}&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">copy</span> <span class="hljs-attr">todir</span>=<span class="hljs-string">&quot;${deploy.dir}&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">fileset</span> <span class="hljs-attr">dir</span>=<span class="hljs-string">&quot;${build.dir}&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">exclude</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;classes/**&quot;</span>/&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">fileset</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">copy</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">echo</span> <span class="hljs-attr">message</span>=<span class="hljs-string">&quot;Servlet deployed to ${deploy.dir}.
+              Restart or reload Tomcat to apply changes.&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">target</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
+</div></code></pre>
+<h4 id="162-actual-build-output-ubuntu-linux">16.2 Actual Build Output (Ubuntu Linux)</h4>
+<pre class="hljs"><code><div>┌─────────────────────────────────────────────────────────────────────────────┐
+│  TERMINAL — Apache Ant Build Output                                          │
+│─────────────────────────────────────────────────────────────────────────────│
+│  $ cd /home/oliyad-dandena/Documents/5thYear/web_services/YourApp           │
+│  $ ant                                                                       │
+│                                                                              │
+│  Buildfile: /home/oliyad-dandena/Documents/5thYear/web_services/            │
+│             YourApp/build.xml                                                │
+│                                                                              │
+│  clean:                                                                      │
+│                                                                              │
+│  compile:                                                                    │
+│      [mkdir] Created dir: .../YourApp/build/classes                         │
+│      [javac] Compiling 1 source file to .../YourApp/build/classes           │
+│                                                                              │
+│  prepare:                                                                    │
+│      [mkdir] Created dir: .../YourApp/build/WEB-INF/classes                 │
+│       [copy] Copying 1 file to .../YourApp/build/WEB-INF/classes            │
+│       [copy] Copying 1 file to .../YourApp/build/WEB-INF                   │
+│                                                                              │
+│  deploy:                                                                     │
+│      [mkdir] Created dir: .../tomcat50-jwsdp/webapps/YourApp                │
+│       [copy] Copying 2 files to .../tomcat50-jwsdp/webapps/YourApp          │
+│       [echo] Servlet deployed to .../webapps/YourApp.                       │
+│              Restart or reload Tomcat to apply changes.                      │
+│                                                                              │
+│  BUILD SUCCESSFUL                                                            │
+│  Total time: 0 seconds                                                       │
+│                                                                              │
+│  $                                                                           │
+└─────────────────────────────────────────────────────────────────────────────┘
+</div></code></pre>
+<h4 id="163-accessing-the-deployed-servlet">16.3 Accessing the Deployed Servlet</h4>
+<p>After running <code>ant</code> and starting (or reloading) Tomcat, the servlet is accessible at:</p>
+<pre class="hljs"><code><div>http://localhost:8080/YourApp/hello
+</div></code></pre>
+<p><strong>Expected Browser / curl Output:</strong></p>
+<pre class="hljs"><code><div>╔══════════════════════════════════════════════════════════════════════════╗
+║  🌐  http://localhost:8080/YourApp/hello                                ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║                                                                          ║
+║  Hello from MyServlet!                                                   ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+</div></code></pre>
+<pre class="hljs"><code><div>$ curl http://localhost:8080/YourApp/hello
+Hello from MyServlet!
+</div></code></pre>
+<h4 id="164-http-request-handling-sequence-diagram">16.4 HTTP Request Handling Sequence Diagram</h4>
+<pre><code class="language-mermaid"><div class="mermaid">sequenceDiagram
+    participant Browser as 🌐 Browser / curl
+    participant Tomcat as 🐱 Tomcat HTTP Connector (port 8080)
+    participant Engine as ⚙️ Catalina Engine
+    participant Host as 🏠 Host (localhost)
+    participant Context as 📁 Context (/YourApp)
+    participant Servlet as ☕ MyServlet
+
+    Browser->>Tomcat: GET /YourApp/hello HTTP/1.1
+    Tomcat->>Engine: Route to Engine
+    Engine->>Host: Match host=localhost
+    Host->>Context: Match context path=/YourApp
+    Context->>Servlet: Match url-pattern=/hello → MyServlet
+    Servlet->>Servlet: doGet(request, response)
+    Servlet-->>Context: resp.setContentType("text/plain")\nresp.getWriter().println("Hello from MyServlet!")
+    Context-->>Host: HTTP 200 OK
+    Host-->>Engine: Pass response
+    Engine-->>Tomcat: Pass response
+    Tomcat-->>Browser: HTTP/1.1 200 OK\nContent-Type: text/plain\n\nHello from MyServlet!
+</div></code></pre>
+<h4 id="165-deployed-file-structure">16.5 Deployed File Structure</h4>
+<p>After running <code>ant deploy</code>, the following files are present in Tomcat's <code>webapps/</code> directory:</p>
+<pre class="hljs"><code><div>tomcat50-jwsdp/webapps/YourApp/
+└── WEB-INF/
+    ├── classes/
+    │   └── com/
+    │       └── example/
+    │           └── MyServlet.class   ✅ Compiled servlet
+    └── web.xml                        ✅ Deployment descriptor
+</div></code></pre>
+<blockquote>
+<p><strong>✅ Experiment 16 Result:</strong> The servlet was successfully compiled using <code>javac</code> (via Ant's <code>&lt;javac&gt;</code> task), assembled into the correct web application directory structure, and deployed to Tomcat's <code>webapps/YourApp/</code> directory. Accessing <code>http://localhost:8080/YourApp/hello</code> returns <code>Hello from MyServlet!</code> — confirming correct compilation, deployment, and HTTP request routing.</p>
+</blockquote>
+<hr>
+<h2 id="4--conclusion">4. 📊 Conclusion</h2>
+<p>This laboratory practice provided comprehensive hands-on experience with the <strong>Java Web Services Developer Pack (JWSDP)</strong> ecosystem. Through sixteen structured experiments, the following key competencies were developed:</p>
+<h3 id="summary-of-experiments">Summary of Experiments</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Experiment</th>
+<th>Key Learning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Tomcat Startup</td>
+<td>Understanding CATALINA_BASE/HOME, JVM initialization, Coyote HTTP connector</td>
+</tr>
+<tr>
+<td>2</td>
+<td>JAXR Browser UI</td>
+<td>Visual UDDI registry navigation and connection</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Public UDDI Registries</td>
+<td>Historical context of UBR shutdown; registry types</td>
+</tr>
+<tr>
+<td>4</td>
+<td>JAXR/UDDI Deep Dive</td>
+<td>UDDI data model, JAXR API, organization publishing workflow</td>
+</tr>
+<tr>
+<td>5</td>
+<td>localhost:8080</td>
+<td>Tomcat default welcome page and navigation links</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Admin Console</td>
+<td>Struts-based JMX administration interface</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Manager App</td>
+<td>Web application lifecycle management</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Tomcat Docs</td>
+<td>18-chapter official documentation structure</td>
+</tr>
+<tr>
+<td>9</td>
+<td>AppDev Guide</td>
+<td>Standard Java web application directory layout</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Sample build.xml</td>
+<td>Ant targets with Catalina custom tasks</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Security Manager</td>
+<td>Java SecurityManager, policy files, permission types</td>
+</tr>
+<tr>
+<td>12</td>
+<td>server.xml</td>
+<td>Complete Tomcat configuration hierarchy</td>
+</tr>
+<tr>
+<td>13</td>
+<td>webapps/ &amp; WEB-INF</td>
+<td>Context paths, private directories, WAR packaging</td>
+</tr>
+<tr>
+<td>14</td>
+<td>webdav/web.xml</td>
+<td>WebDAV servlet, HTTP Basic Auth, Servlet 2.3 DTD</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Apache Ant</td>
+<td>Build lifecycle, XML tasks, dependency chains</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Servlet Deployment</td>
+<td>End-to-end: write → compile → deploy → test</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-takeaways">Key Takeaways</h3>
+<ol>
+<li>
+<p><strong>Tomcat 5.0</strong> implements Servlet 2.4 / JSP 2.0 and provides a complete web application container with embedded management tools.</p>
+</li>
+<li>
+<p><strong>JWSDP</strong> bundles all essential Java web services APIs (JAXR, JAX-RPC, JAXM, JAXP, JSSE, JSTL) into a single coherent development pack.</p>
+</li>
+<li>
+<p><strong>JAXR and UDDI</strong> represent the service discovery layer of web services — though the public UBR shut down in 2006, the concepts remain relevant in modern service registries.</p>
+</li>
+<li>
+<p><strong>Apache Ant</strong> provides robust, XML-based build automation that cleanly separates the <strong>compile</strong>, <strong>assemble</strong>, and <strong>deploy</strong> phases of a Java web application's lifecycle.</p>
+</li>
+<li>
+<p><strong>The WEB-INF convention</strong> — a private directory not accessible via HTTP — is a foundational security pattern in Java web applications that prevents direct access to configuration and class files.</p>
+</li>
+<li>
+<p><strong>server.xml</strong> reveals Tomcat's elegant component hierarchy: Server → Service → Connector/Engine → Host → Context, which maps directly to the URL namespace clients use to reach applications.</p>
+</li>
+</ol>
+<hr>
+<p><em>Report prepared by Group 5, Department of Software Engineering, College of Computing and Informatics, Haramaya University — Academic Year 2026–2027.</em></p>
+
+</body>
+</html>
