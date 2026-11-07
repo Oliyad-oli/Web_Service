@@ -44,17 +44,34 @@ echo -e "\n1. Test GET All Students:"
 curl -s -i "http://localhost:8080/student-api/students" | head -n 20
 
 echo -e "\n2. Test POST - Create Student (Requirement 6.1):"
-curl -s -i -X POST "http://localhost:8080/student-api/students" \
+TIMESTAMP=$(date +%s)
+POST_RES=$(curl -s -w "\n%{http_code}" -X POST "http://localhost:8080/student-api/students" \
   -H "Content-Type: application/json" \
-  -d '{"name":"Kenean Belay","email":"kenean.belay@university.edu.et","department":"Artificial Intelligence"}'
+  -d "{\"name\":\"Kenean Belay\",\"email\":\"kenean.${TIMESTAMP}@university.edu.et\",\"department\":\"Artificial Intelligence\"}")
+HTTP_CODE=$(echo "$POST_RES" | tail -n1)
+POST_BODY=$(echo "$POST_RES" | head -n -1)
+echo "HTTP Status: $HTTP_CODE"
+echo "Response Body: $POST_BODY"
 
-echo -e "\n\n3. Test PUT - Update Student (Requirement 6.2):"
-curl -s -i -X PUT "http://localhost:8080/student-api/students/4" \
+# Extract the newly created ID
+NEW_ID=$(echo "$POST_BODY" | grep -o '"id":[0-9]*' | head -n1 | cut -d':' -f2)
+echo "Created Student ID: $NEW_ID"
+
+echo -e "\n3. Test PUT - Update Student (Requirement 6.2):"
+PUT_RES=$(curl -s -w "\n%{http_code}" -X PUT "http://localhost:8080/student-api/students/${NEW_ID}" \
   -H "Content-Type: application/json" \
-  -d '{"name":"Kenean Belay Updated","email":"kenean.updated@university.edu.et","department":"Data Science"}'
+  -d "{\"name\":\"Kenean Belay Updated\",\"email\":\"kenean.up.${TIMESTAMP}@university.edu.et\",\"department\":\"Data Science\"}")
+PUT_CODE=$(echo "$PUT_RES" | tail -n1)
+PUT_BODY=$(echo "$PUT_RES" | head -n -1)
+echo "HTTP Status: $PUT_CODE"
+echo "Response Body: $PUT_BODY"
 
-echo -e "\n\n4. Test DELETE - Delete Student (Requirement 6.3):"
-curl -s -i -X DELETE "http://localhost:8080/student-api/students/4"
+echo -e "\n4. Test DELETE - Delete Student (Requirement 6.3):"
+DEL_RES=$(curl -s -w "\n%{http_code}" -X DELETE "http://localhost:8080/student-api/students/${NEW_ID}")
+DEL_CODE=$(echo "$DEL_RES" | tail -n1)
+DEL_BODY=$(echo "$DEL_RES" | head -n -1)
+echo "HTTP Status: $DEL_CODE"
+echo "Response Body: $DEL_BODY"
 
 echo -e "\n\n5. Test DELETE Non-Existent ID (Expected 404 Not Found):"
 curl -s -i -X DELETE "http://localhost:8080/student-api/students/999"

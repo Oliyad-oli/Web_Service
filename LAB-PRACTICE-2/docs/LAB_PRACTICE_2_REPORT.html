@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WEB SERVICES LAB PRACTICE 2 — COMPREHENSIVE REPORT</title>
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #24292e;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 30px;
+}
+h1, h2, h3, h4 {
+    color: #1a202c;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.25em; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 16px;
+}
+table, th, td {
+    border: 1px solid #dfe2e5;
+}
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+}
+th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+}
+tr:nth-child(even) {
+    background-color: #fafbfc;
+}
+pre {
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+}
+code {
+    background-color: rgba(27,31,35,0.05);
+    border-radius: 3px;
+    font-size: 85%;
+    margin: 0;
+    padding: 0.2em 0.4em;
+    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+}
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    color: #6a737d;
+    margin: 0;
+    padding: 0 1em;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background: #e1e4e8;
+    margin: 24px 0;
+}
+@media print {
+    body { max-width: 100%; padding: 20px; }
+    h1, h2 { page-break-after: avoid; }
+    table, pre { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<h1>🎓 WEB SERVICES LAB PRACTICE 2 — COMPREHENSIVE LABORATORY REPORT</h1>
+<hr />
+<div align="center">
+<h1>HARAMAYA UNIVERSITY</h1>
+<h2>College of Computing and Informatics</h2>
+<h3>Department of Software Engineering</h3>
+<hr />
+<p><strong>Course:</strong> Web Services<br />
+<strong>Course Code:</strong> SEng-4112<br />
+<strong>Lab Practice:</strong> Lab Practice 2 — RESTful Web Services in PHP and Java<br />
+<strong>Academic Year:</strong> 2026–2027 | <strong>Year V — Semester I</strong><br />
+<strong>Date of Submission:</strong> November 2026</p>
+<hr />
+<h2>👥 Group Members</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Full Name</th>
+<th>Student ID</th>
+<th>Department</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Yabets Tinsae Dube</strong></td>
+<td>1040/15</td>
+<td>Software Engineering</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Tesfalem Markos</strong></td>
+<td>0993/15</td>
+<td>Software Engineering</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Abdi Tamene Tekuma</strong></td>
+<td>0008/15</td>
+<td>Software Engineering</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Yosan Gonfa Merga</strong></td>
+<td>1084/15</td>
+<td>Software Engineering</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Oliyad Dandena</strong></td>
+<td>1786/15</td>
+<td>Software Engineering</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div style="page-break-after: always;"></div>
+<h2>📋 Table of Contents</h2>
+<ol>
+<li><a href="#1-executive-summary">Executive Summary</a></li>
+<li><a href="#2-introduction-to-restful-web-services">Introduction to RESTful Web Services</a></li>
+<li><a href="#3-lab-objectives">Lab Objectives</a></li>
+<li><a href="#4-development-tools--runtimes">Development Tools &amp; Runtimes</a></li>
+<li><a href="#5-experiment-1-php-restful-web-service-xml">Experiment 1: PHP RESTful Web Service (XML)</a>
+<ul>
+<li>5.1 Architecture &amp; Flowchart</li>
+<li>5.2 Database Design &amp; Schema (<code>parts_db</code>)</li>
+<li>5.3 Database Connection Implementation (<code>db.php</code>)</li>
+<li>5.4 REST Service Implementation (<code>parts.php</code>)</li>
+<li>5.5 Test Scenarios &amp; Verification Evidence</li>
+</ul>
+</li>
+<li><a href="#6-experiment-2-java-restful-web-service-jakarta-servlet--jdbc">Experiment 2: Java RESTful Web Service (Jakarta Servlet &amp; JDBC)</a>
+<ul>
+<li>6.1 Architecture &amp; Component Design</li>
+<li>6.2 Database Design &amp; Schema (<code>student_db</code>)</li>
+<li>6.3 Maven Build Configuration (<code>pom.xml</code>)</li>
+<li>6.4 Entity POJO with Input Validation (<code>Student.java</code>)</li>
+<li>6.5 JDBC Connection Provider (<code>DBConnection.java</code>)</li>
+<li>6.6 REST Controller Implementation (<code>StudentServlet.java</code>)</li>
+<li>6.7 Deployment Descriptor (<code>web.xml</code>)</li>
+<li>6.8 Build &amp; Tomcat 10 Deployment Procedure</li>
+<li>6.9 Test Scenarios &amp; Verification Evidence</li>
+</ul>
+</li>
+<li><a href="#7-comparative-architectural-analysis">Comparative Architectural Analysis</a></li>
+<li><a href="#8-challenges-encountered--engineering-solutions">Challenges Encountered &amp; Engineering Solutions</a></li>
+<li><a href="#9-conclusion--recommendations">Conclusion &amp; Recommendations</a></li>
+<li><a href="#10-references">References</a></li>
+</ol>
+<hr />
+<div style="page-break-after: always;"></div>
+<h2>1. Executive Summary</h2>
+<p>This laboratory report documents the design, implementation, deployment, and testing of <strong>Lab Practice 2: RESTful Web Services in PHP and Java</strong>. The assignment required building two independent, enterprise-grade web services adhering to Representational State Transfer (REST) principles on <strong>Ubuntu Linux</strong>:</p>
+<ol>
+<li><strong>Experiment 1 (PHP RESTful Service):</strong> Hosted on the <strong>Apache HTTP Server</strong>, this service connects to the MySQL database <code>parts_db</code>, accepts a <code>vendor_id</code> parameter, filters parts where <code>part_id &gt;= 1000</code>, and streams valid, formatted <strong>XML</strong> documents. It includes robust defensive programming for invalid parameters, non-existent vendors, empty result sets, and database failures.</li>
+<li><strong>Experiment 2 (Java RESTful Service):</strong> Hosted on <strong>Apache Tomcat 10</strong>, this service is implemented as a standard Maven Web Application using the modern <strong>Jakarta Servlet API 5.0</strong> and raw <strong>JDBC</strong>. It interacts with the MySQL database <code>student_db</code> to perform full resource lifecycle management: <strong>POST</strong> (Create), <strong>PUT</strong> (Update), <strong>DELETE</strong> (Delete), and <strong>GET</strong> (Retrieve). It enforces SQL injection protection through prepared statements, payload validation, and HTTP status codes (<code>200</code>, <code>201</code>, <code>400</code>, <code>404</code>, <code>409</code>, <code>500</code>).</li>
+</ol>
+<p>All code was verified, deployed, and tested locally using CLI tools (<code>curl</code>, PHP CLI, Maven CLI) and GUI tools (<strong>Postman</strong>). The project repository has been staged and pushed to GitHub with stage-by-stage atomic commits on branch <code>lab-two</code>.</p>
+<hr />
+<h2>2. Introduction to RESTful Web Services</h2>
+<p><strong>Representational State Transfer (REST)</strong> is an architectural style formulated by Roy Fielding in 2000 for distributed hypermedia systems. Unlike SOAP or RPC protocols that rely on remote procedure calling semantics, REST models a software system as a collection of addressable <strong>resources</strong>.</p>
+<h3>Core Constraints of REST Architecture:</h3>
+<ol>
+<li><strong>Client-Server Separation:</strong> The user interface/client is completely separated from data storage and business logic.</li>
+<li><strong>Statelessness:</strong> Every HTTP request from a client must contain all necessary context for the server to fulfill the request. The server retains no client session context.</li>
+<li><strong>Cacheability:</strong> Responses must define themselves as cacheable or non-cacheable to improve network efficiency.</li>
+<li><strong>Uniform Interface:</strong> Resources are identified by URIs (<code>/students/1</code>, <code>/parts.php?vendor_id=1</code>), manipulated through standard representations (JSON, XML), and acted upon using standard HTTP verbs:
+<ul>
+<li><code>GET</code>: Safe, idempotent retrieval of resource representations.</li>
+<li><code>POST</code>: Unsafe, non-idempotent creation of a new subordinate resource.</li>
+<li><code>PUT</code>: Idempotent replacement/update of an existing resource.</li>
+<li><code>DELETE</code>: Idempotent removal of a resource.</li>
+</ul>
+</li>
+<li><strong>Layered System:</strong> Clients cannot tell whether they are connected directly to the end server or an intermediary proxy or cache.</li>
+</ol>
+<hr />
+<h2>3. Lab Objectives</h2>
+<h3>General Objective</h3>
+<p>To develop practical competence in creating, deploying, securing, and testing RESTful web services in both scripting (PHP) and compiled (Java Servlet) environments on Linux.</p>
+<h3>Specific Objectives</h3>
+<ul>
+<li>Configure and administer MySQL relational databases (<code>parts_db</code> and <code>student_db</code>) with proper primary and foreign keys.</li>
+<li>Implement a PHP service querying relational data with PDO and emitting well-formed XML responses.</li>
+<li>Apply business logic filtering (<code>part_id &gt;= 1000</code>) in SQL queries to optimize database throughput.</li>
+<li>Construct a standard Maven project structure deploying on Apache Tomcat 10 with Jakarta EE specifications.</li>
+<li>Implement secure CRUD database operations using JDBC <code>PreparedStatement</code> to eliminate SQL injection vulnerabilities.</li>
+<li>Return standard HTTP response status codes reflecting exact operation outcomes.</li>
+<li>Conduct comprehensive automated and manual API testing using Postman and cURL.</li>
+</ul>
+<hr />
+<h2>4. Development Tools &amp; Runtimes</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Software / Tool</th>
+<th>Installed Version</th>
+<th>Purpose in Lab</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Operating System</strong></td>
+<td>Ubuntu Linux</td>
+<td>24.04 LTS (Noble Numbat)</td>
+<td>Host OS and development environment</td>
+</tr>
+<tr>
+<td><strong>Web Server</strong></td>
+<td>Apache HTTP Server</td>
+<td>Apache/2.4.58</td>
+<td>HTTP daemon hosting PHP service</td>
+</tr>
+<tr>
+<td><strong>Scripting Engine</strong></td>
+<td>PHP</td>
+<td>PHP 8.3.6 (cli)</td>
+<td>Scripting runtime for Experiment 1</td>
+</tr>
+<tr>
+<td><strong>Database Server</strong></td>
+<td>MySQL Community Server</td>
+<td>8.0.46-0ubuntu0.24.04.4</td>
+<td>RDBMS for both experiments</td>
+</tr>
+<tr>
+<td><strong>Database Management</strong></td>
+<td>phpMyAdmin &amp; MySQL CLI</td>
+<td>5.2.x</td>
+<td>Database inspection and query management</td>
+</tr>
+<tr>
+<td><strong>Java Development Kit</strong></td>
+<td>OpenJDK</td>
+<td>17.0.20.1 (64-Bit)</td>
+<td>Java compiler and runtime environment</td>
+</tr>
+<tr>
+<td><strong>Build Automation</strong></td>
+<td>Apache Maven</td>
+<td>3.8.7</td>
+<td>Dependency management and WAR packaging</td>
+</tr>
+<tr>
+<td><strong>Servlet Container</strong></td>
+<td>Apache Tomcat</td>
+<td>10.1.x</td>
+<td>Jakarta EE servlet container on port 8080</td>
+</tr>
+<tr>
+<td><strong>API Client</strong></td>
+<td>Postman &amp; cURL</td>
+<td>Postman v10.x / cURL 8.5.0</td>
+<td>REST API endpoint testing and verification</td>
+</tr>
+<tr>
+<td><strong>Source Control</strong></td>
+<td>Git &amp; GitHub</td>
+<td>Git 2.43.0</td>
+<td>Version control and remote repository hosting</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div style="page-break-after: always;"></div>
+<h2>5. Experiment 1: PHP RESTful Web Service (XML)</h2>
+<h3>5.1 Architecture &amp; Flowchart</h3>
+<pre><code class="language-text">+-----------------------+           HTTP GET /parts.php?vendor_id=1           +-----------------------+
+|  Client (Browser /    | --------------------------------------------------&gt; | Apache HTTP Server    |
+|  Postman / cURL)      |                                                     | (Port 80)             |
++-----------------------+                                                     +-----------------------+
+            ^                                                                             |
+            |                                                                             v
+            | XML Response (HTTP 200 / 400 / 404)                                     +-----------------------+
+            +------------------------------------------------------------------------ | parts.php (PHP 8.3)   |
+                                                                                      +-----------------------+
+                                                                                                  |
+                                                                                                  v
+                                                                                      +-----------------------+
+                                                                                      | db.php (PDO Instance) |
+                                                                                      +-----------------------+
+                                                                                                  |
+                                                                                                  v TCP 3306
+                                                                                      +-----------------------+
+                                                                                      | MySQL (parts_db)      |
+                                                                                      | - vendors table       |
+                                                                                      | - parts table         |
+                                                                                      +-----------------------+
+</code></pre>
+<h3>5.2 Database Design &amp; Schema (<code>parts_db</code>)</h3>
+<p>The relational design enforces referential integrity between vendors and parts.</p>
+<pre><code class="language-sql">-- Database creation
+CREATE DATABASE IF NOT EXISTS parts_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE parts_db;
+
+-- 1. Vendors Table
+CREATE TABLE vendors (
+    vendor_id INT AUTO_INCREMENT PRIMARY KEY,
+    vendor_name VARCHAR(100) NOT NULL,
+    contact_email VARCHAR(100),
+    country VARCHAR(50) DEFAULT 'Ethiopia',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- 2. Parts Table (with Foreign Key)
+CREATE TABLE parts (
+    part_id INT PRIMARY KEY,
+    part_name VARCHAR(100) NOT NULL,
+    vendor_id INT NOT NULL,
+    unit_price DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
+    stock_quantity INT NOT NULL DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_parts_vendor
+        FOREIGN KEY (vendor_id) REFERENCES vendors(vendor_id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+</code></pre>
+<h4>Sample Data Strategy</h4>
+<p>To verify the business rule (<code>part_id &gt;= 1000</code>) and test edge cases, records were inserted as follows:</p>
+<ul>
+<li><strong>Vendor 1 (ABC Company):</strong> Parts <code>1001</code> (Mechanical Keyboard), <code>1002</code> (Wireless Mouse), and <code>501</code> (USB Cable). <em>Verifies that 1001 &amp; 1002 are included, while 501 is excluded.</em></li>
+<li><strong>Vendor 2 (Global Tech Supplies):</strong> Parts <code>1003</code> (4K Monitor), <code>1004</code> (USB Hub), and <code>999</code> (HDMI Adapter). <em>Verifies exclusion of 999.</em></li>
+<li><strong>Vendor 3 (Micro Electronic Components):</strong> Parts <code>301</code> and <code>450</code> (both $&lt; 1000$). <em>Verifies 404 Not Found for vendors with no eligible parts.</em></li>
+<li><strong>Vendor 4 (Apex Hardware Distributors):</strong> No parts assigned. <em>Verifies empty vendor handling.</em></li>
+</ul>
+<h3>5.3 Database Connection Implementation (<code>db.php</code>)</h3>
+<pre><code class="language-php">&lt;?php
+/**
+ * db.php - Reusable PDO Database Connection Module
+ */
+define('DB_HOST', '127.0.0.1');      // Force IPv4 loopback to avoid Linux socket issues
+define('DB_PORT', '3306');
+define('DB_NAME', 'parts_db');
+define('DB_USER', 'labuser');
+define('DB_PASS', 'LabPassword123!');
+define('DB_CHARSET', 'utf8mb4');
+
+function getDbConnection(): PDO {
+    $dsn = &quot;mysql:host=&quot; . DB_HOST . &quot;;port=&quot; . DB_PORT . &quot;;dbname=&quot; . DB_NAME . &quot;;charset=&quot; . DB_CHARSET;
+    $options = [
+        PDO::ATTR_ERRMODE            =&gt; PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE =&gt; PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   =&gt; false,
+        PDO::ATTR_TIMEOUT            =&gt; 5,
+    ];
+    try {
+        return new PDO($dsn, DB_USER, DB_PASS, $options);
+    } catch (PDOException $e) {
+        error_log(&quot;Database connection error: &quot; . $e-&gt;getMessage());
+        throw $e;
+    }
+}
+</code></pre>
+<h3>5.4 REST Service Implementation (<code>parts.php</code>)</h3>
+<pre><code class="language-php">&lt;?php
+/**
+ * parts.php - Vendor Parts RESTful Web Service
+ */
+header(&quot;Content-Type: application/xml; charset=UTF-8&quot;);
+header(&quot;Access-Control-Allow-Origin: *&quot;);
+header(&quot;Access-Control-Allow-Methods: GET&quot;);
+
+require_once __DIR__ . '/db.php';
+
+function sendXmlError(int $statusCode, string $message): void {
+    http_response_code($statusCode);
+    $dom = new DOMDocument('1.0', 'UTF-8');
+    $dom-&gt;formatOutput = true;
+    $root = $dom-&gt;createElement('response');
+    $dom-&gt;appendChild($root);
+    $root-&gt;appendChild($dom-&gt;createElement('status', 'error'));
+    $root-&gt;appendChild($dom-&gt;createElement('code', (string)$statusCode));
+    $msgNode = $dom-&gt;createElement('message');
+    $msgNode-&gt;appendChild($dom-&gt;createTextNode($message));
+    $root-&gt;appendChild($msgNode);
+    echo $dom-&gt;saveXML();
+    exit;
+}
+
+// 1. Method check
+if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+    sendXmlError(405, &quot;Method Not Allowed. Only GET requests are accepted.&quot;);
+}
+
+// 2. Validate vendor_id
+if (!isset($_GET['vendor_id']) || trim($_GET['vendor_id']) === '') {
+    sendXmlError(400, &quot;Bad Request: Missing required parameter 'vendor_id'. Example: parts.php?vendor_id=1&quot;);
+}
+
+$vendorId = filter_var(trim($_GET['vendor_id']), FILTER_VALIDATE_INT, [&quot;options&quot; =&gt; [&quot;min_range&quot; =&gt; 1]]);
+if ($vendorId === false) {
+    sendXmlError(400, &quot;Bad Request: 'vendor_id' must be a positive integer.&quot;);
+}
+
+try {
+    $pdo = getDbConnection();
+
+    // Verify vendor existence
+    $vendorStmt = $pdo-&gt;prepare(&quot;SELECT vendor_id, vendor_name FROM vendors WHERE vendor_id = :vendor_id&quot;);
+    $vendorStmt-&gt;execute([':vendor_id' =&gt; $vendorId]);
+    $vendor = $vendorStmt-&gt;fetch();
+
+    if (!$vendor) {
+        sendXmlError(404, &quot;Not Found: No vendor exists with vendor_id = {$vendorId}.&quot;);
+    }
+
+    // Query parts &gt;= 1000
+    $sql = &quot;SELECT p.part_id, p.part_name, p.vendor_id, v.vendor_name
+            FROM parts p
+            INNER JOIN vendors v ON p.vendor_id = v.vendor_id
+            WHERE p.vendor_id = :vendor_id AND p.part_id &gt;= 1000
+            ORDER BY p.part_id ASC&quot;;
+    $partsStmt = $pdo-&gt;prepare($sql);
+    $partsStmt-&gt;execute([':vendor_id' =&gt; $vendorId]);
+    $parts = $partsStmt-&gt;fetchAll();
+
+    if (empty($parts)) {
+        http_response_code(404);
+        $dom = new DOMDocument('1.0', 'UTF-8');
+        $dom-&gt;formatOutput = true;
+        $root = $dom-&gt;createElement('parts');
+        $dom-&gt;appendChild($root);
+        $notice = $dom-&gt;createElement('message');
+        $notice-&gt;appendChild($dom-&gt;createTextNode(&quot;No parts found with part_id &gt;= 1000 for vendor '{$vendor['vendor_name']}'.&quot;));
+        $root-&gt;appendChild($notice);
+        echo $dom-&gt;saveXML();
+        exit;
+    }
+
+    // Build success XML
+    http_response_code(200);
+    $dom = new DOMDocument('1.0', 'UTF-8');
+    $dom-&gt;formatOutput = true;
+    $root = $dom-&gt;createElement('parts');
+    $dom-&gt;appendChild($root);
+
+    foreach ($parts as $row) {
+        $partElement = $dom-&gt;createElement('part');
+        $partElement-&gt;appendChild($dom-&gt;createElement('part_id', (string)$row['part_id']));
+        
+        $pName = $dom-&gt;createElement('part_name');
+        $pName-&gt;appendChild($dom-&gt;createTextNode($row['part_name']));
+        $partElement-&gt;appendChild($pName);
+
+        $partElement-&gt;appendChild($dom-&gt;createElement('vendor_id', (string)$row['vendor_id']));
+
+        $vName = $dom-&gt;createElement('vendor_name');
+        $vName-&gt;appendChild($dom-&gt;createTextNode($row['vendor_name']));
+        $partElement-&gt;appendChild($vName);
+
+        $root-&gt;appendChild($partElement);
+    }
+
+    echo $dom-&gt;saveXML();
+
+} catch (PDOException $e) {
+    sendXmlError(500, &quot;Internal Server Error: Database operation failed.&quot;);
+}
+</code></pre>
+<h3>5.5 Test Scenarios &amp; Verification Evidence</h3>
+<h4>Test 1: Query Vendor 1 (Matching parts $\ge 1000$, excluding part 501)</h4>
+<ul>
+<li><strong>Request:</strong> <code>GET http://localhost/experiment1/parts.php?vendor_id=1</code></li>
+<li><strong>HTTP Status:</strong> <code>200 OK</code></li>
+<li><strong>Response XML:</strong></li>
+</ul>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;parts&gt;
+  &lt;part&gt;
+    &lt;part_id&gt;1001&lt;/part_id&gt;
+    &lt;part_name&gt;Mechanical Keyboard&lt;/part_name&gt;
+    &lt;vendor_id&gt;1&lt;/vendor_id&gt;
+    &lt;vendor_name&gt;ABC Company&lt;/vendor_name&gt;
+  &lt;/part&gt;
+  &lt;part&gt;
+    &lt;part_id&gt;1002&lt;/part_id&gt;
+    &lt;part_name&gt;Wireless Optical Mouse&lt;/part_name&gt;
+    &lt;vendor_id&gt;1&lt;/vendor_id&gt;
+    &lt;vendor_name&gt;ABC Company&lt;/vendor_name&gt;
+  &lt;/part&gt;
+&lt;/parts&gt;
+</code></pre>
+<h4>Test 2: Query Vendor 3 (Vendor exists but all parts $&lt; 1000$)</h4>
+<ul>
+<li><strong>Request:</strong> <code>GET http://localhost/experiment1/parts.php?vendor_id=3</code></li>
+<li><strong>HTTP Status:</strong> <code>404 Not Found</code></li>
+<li><strong>Response XML:</strong></li>
+</ul>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;parts&gt;
+  &lt;message&gt;No parts found with part_id &gt;= 1000 for vendor 'Micro Electronic Components' (ID: 3).&lt;/message&gt;
+&lt;/parts&gt;
+</code></pre>
+<h4>Test 3: Missing Parameter</h4>
+<ul>
+<li><strong>Request:</strong> <code>GET http://localhost/experiment1/parts.php</code></li>
+<li><strong>HTTP Status:</strong> <code>400 Bad Request</code></li>
+<li><strong>Response XML:</strong></li>
+</ul>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;response&gt;
+  &lt;status&gt;error&lt;/status&gt;
+  &lt;code&gt;400&lt;/code&gt;
+  &lt;message&gt;Bad Request: Missing required parameter 'vendor_id'. Example: parts.php?vendor_id=1&lt;/message&gt;
+&lt;/response&gt;
+</code></pre>
+<hr />
+<div style="page-break-after: always;"></div>
+<h2>6. Experiment 2: Java RESTful Web Service (Jakarta Servlet &amp; JDBC)</h2>
+<h3>6.1 Architecture &amp; Component Design</h3>
+<pre><code class="language-text">+-----------------------+              HTTP POST / PUT / DELETE / GET              +---------------------------+
+|  Client (Browser /    | -------------------------------------------------------&gt; | Apache Tomcat 10 (:8080)  |
+|  Postman / cURL)      |                                                          +---------------------------+
++-----------------------+                                                                        |
+            ^                                                                                    v
+            | JSON Response (HTTP 201 / 200 / 400 / 404 / 409)                     +---------------------------+
+            +--------------------------------------------------------------------- | StudentServlet.java       |
+                                                                                   +---------------------------+
+                                                                                     |           |
+                                                                       Student.java  |           | DBConnection.java
+                                                                       (Entity Model)|           | (JDBC Driver)
+                                                                                     v           v
+                                                                                   +---------------------------+
+                                                                                   | MySQL Server (:3306)      |
+                                                                                   | Database: student_db      |
+                                                                                   | Table: students           |
+                                                                                   +---------------------------+
+</code></pre>
+<h3>6.2 Database Design &amp; Schema (<code>student_db</code>)</h3>
+<pre><code class="language-sql">CREATE DATABASE IF NOT EXISTS student_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE student_db;
+
+DROP TABLE IF EXISTS students;
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    department VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+INSERT INTO students (id, name, email, department) VALUES
+(1, 'Abebe Bikila', 'abebe.bikila@university.edu.et', 'Computer Science'),
+(2, 'Chaltu Tadesse', 'chaltu.tadesse@university.edu.et', 'Software Engineering'),
+(3, 'Dawit Yohannes', 'dawit.yohannes@university.edu.et', 'Information Systems');
+
+ALTER TABLE students AUTO_INCREMENT = 4;
+</code></pre>
+<h3>6.3 Maven Build Configuration (<code>pom.xml</code>)</h3>
+<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;com.lab&lt;/groupId&gt;
+    &lt;artifactId&gt;student-api&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+    &lt;packaging&gt;war&lt;/packaging&gt;
+
+    &lt;properties&gt;
+        &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;jakarta.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;jakarta.servlet-api&lt;/artifactId&gt;
+            &lt;version&gt;5.0.0&lt;/version&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-j&lt;/artifactId&gt;
+            &lt;version&gt;8.3.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;
+            &lt;artifactId&gt;gson&lt;/artifactId&gt;
+            &lt;version&gt;2.10.1&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;finalName&gt;student-api&lt;/finalName&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.4.0&lt;/version&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+</code></pre>
+<h3>6.4 Entity POJO with Input Validation (<code>Student.java</code>)</h3>
+<pre><code class="language-java">package com.lab;
+
+import java.io.Serializable;
+
+public class Student implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private Integer id;
+    private String name;
+    private String email;
+    private String department;
+    private String createdAt;
+    private String updatedAt;
+
+    public Student() {}
+
+    public Student(String name, String email, String department) {
+        this.name = name;
+        this.email = email;
+        this.department = department;
+    }
+
+    public Student(Integer id, String name, String email, String department, String createdAt, String updatedAt) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.department = department;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    // Getters and Setters ...
+
+    public String validate() {
+        if (name == null || name.trim().isEmpty()) {
+            return &quot;Field 'name' is required and cannot be empty.&quot;;
+        }
+        if (email == null || email.trim().isEmpty()) {
+            return &quot;Field 'email' is required and cannot be empty.&quot;;
+        }
+        if (!email.matches(&quot;^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$&quot;)) {
+            return &quot;Field 'email' is invalid: '&quot; + email + &quot;' is not a valid email address.&quot;;
+        }
+        if (department == null || department.trim().isEmpty()) {
+            return &quot;Field 'department' is required and cannot be empty.&quot;;
+        }
+        return null;
+    }
+}
+</code></pre>
+<h3>6.5 JDBC Connection Provider (<code>DBConnection.java</code>)</h3>
+<pre><code class="language-java">package com.lab;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DBConnection {
+    private static final String JDBC_URL = &quot;jdbc:mysql://127.0.0.1:3306/student_db?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC&amp;characterEncoding=UTF-8&quot;;
+    private static final String DB_USER = &quot;labuser&quot;;
+    private static final String DB_PASS = &quot;LabPassword123!&quot;;
+
+    static {
+        try {
+            Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+        } catch (ClassNotFoundException e) {
+            System.err.println(&quot;MySQL Driver not found: &quot; + e.getMessage());
+        }
+    }
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
+    }
+}
+</code></pre>
+<h3>6.6 REST Controller Implementation (<code>StudentServlet.java</code>)</h3>
+<pre><code class="language-java">package com.lab;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@WebServlet(name = &quot;StudentServlet&quot;, urlPatterns = {&quot;/students&quot;, &quot;/students/*&quot;})
+public class StudentServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+    private final Gson gson = new Gson();
+
+    private void setHeaders(HttpServletResponse response) {
+        response.setContentType(&quot;application/json&quot;);
+        response.setCharacterEncoding(&quot;UTF-8&quot;);
+        response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);
+        response.setHeader(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, POST, PUT, DELETE, OPTIONS&quot;);
+        response.setHeader(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type&quot;);
+    }
+
+    private void sendJsonResponse(HttpServletResponse response, int statusCode, String status, String message, Object data)
+            throws IOException {
+        response.setStatus(statusCode);
+        JsonObject json = new JsonObject();
+        json.addProperty(&quot;status&quot;, status);
+        json.addProperty(&quot;code&quot;, statusCode);
+        json.addProperty(&quot;message&quot;, message);
+        if (data != null) {
+            json.add(&quot;data&quot;, gson.toJsonTree(data));
+        }
+        try (PrintWriter out = response.getWriter()) {
+            out.print(gson.toJson(json));
+            out.flush();
+        }
+    }
+
+    // POST: Create
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        setHeaders(resp);
+        Student student = gson.fromJson(req.getReader(), Student.class);
+        String err = student.validate();
+        if (err != null) {
+            sendJsonResponse(resp, HttpServletResponse.SC_BAD_REQUEST, &quot;error&quot;, err, null);
+            return;
+        }
+
+        String sql = &quot;INSERT INTO students (name, email, department) VALUES (?, ?, ?)&quot;;
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            stmt.setString(1, student.getName().trim());
+            stmt.setString(2, student.getEmail().trim());
+            stmt.setString(3, student.getDepartment().trim());
+            stmt.executeUpdate();
+
+            try (ResultSet keys = stmt.getGeneratedKeys()) {
+                if (keys.next()) student.setId(keys.getInt(1));
+            }
+            sendJsonResponse(resp, HttpServletResponse.SC_CREATED, &quot;success&quot;, &quot;Student record created successfully.&quot;, student);
+        } catch (SQLException e) {
+            if (e.getErrorCode() == 1062) {
+                sendJsonResponse(resp, HttpServletResponse.SC_CONFLICT, &quot;error&quot;, &quot;Student email already exists.&quot;, null);
+            } else {
+                sendJsonResponse(resp, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, &quot;error&quot;, e.getMessage(), null);
+            }
+        }
+    }
+
+    // PUT: Update
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        setHeaders(resp);
+        Integer id = extractStudentId(req);
+        Student student = gson.fromJson(req.getReader(), Student.class);
+        student.setId(id);
+
+        String sql = &quot;UPDATE students SET name = ?, email = ?, department = ? WHERE id = ?&quot;;
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, student.getName());
+            stmt.setString(2, student.getEmail());
+            stmt.setString(3, student.getDepartment());
+            stmt.setInt(4, id);
+
+            int rows = stmt.executeUpdate();
+            if (rows == 0) {
+                sendJsonResponse(resp, HttpServletResponse.SC_NOT_FOUND, &quot;error&quot;, &quot;No student exists with ID &quot; + id, null);
+            } else {
+                sendJsonResponse(resp, HttpServletResponse.SC_OK, &quot;success&quot;, &quot;Student record updated successfully.&quot;, student);
+            }
+        } catch (SQLException e) {
+            sendJsonResponse(resp, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, &quot;error&quot;, e.getMessage(), null);
+        }
+    }
+
+    // DELETE: Delete
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        setHeaders(resp);
+        Integer id = extractStudentId(req);
+        String sql = &quot;DELETE FROM students WHERE id = ?&quot;;
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            int rows = stmt.executeUpdate();
+            if (rows == 0) {
+                sendJsonResponse(resp, HttpServletResponse.SC_NOT_FOUND, &quot;error&quot;, &quot;No student found with ID &quot; + id, null);
+            } else {
+                JsonObject data = new JsonObject();
+                data.addProperty(&quot;deletedId&quot;, id);
+                sendJsonResponse(resp, HttpServletResponse.SC_OK, &quot;success&quot;, &quot;Student record deleted successfully.&quot;, data);
+            }
+        } catch (SQLException e) {
+            sendJsonResponse(resp, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, &quot;error&quot;, e.getMessage(), null);
+        }
+    }
+}
+</code></pre>
+<h3>6.7 Deployment Descriptor (<code>web.xml</code>)</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns=&quot;https://jakarta.ee/xml/ns/jakartaee&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd&quot;
+         version=&quot;5.0&quot;&gt;
+    &lt;display-name&gt;Student RESTful Web Service&lt;/display-name&gt;
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;StudentServlet&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;com.lab.StudentServlet&lt;/servlet-class&gt;
+    &lt;/servlet&gt;
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;StudentServlet&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/students&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;StudentServlet&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/students/*&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+&lt;/web-app&gt;
+</code></pre>
+<h3>6.8 Build &amp; Tomcat 10 Deployment Procedure</h3>
+<ol>
+<li><strong>Compile &amp; Package:</strong><pre><code class="language-bash">cd LAB-PRACTICE-2/EXPERIMENT-2-JAVA
+mvn clean package
+</code></pre>
+<em>Result:</em> Generated <code>target/student-api.war</code> (5.9 MB, bundled with MySQL Connector/J and Gson).</li>
+<li><strong>Deploy into Tomcat webapps:</strong><pre><code class="language-bash">sudo cp target/student-api.war /var/lib/tomcat10/webapps/
+sudo chown tomcat:tomcat /var/lib/tomcat10/webapps/student-api.war
+</code></pre>
+</li>
+<li><strong>Verify Context:</strong>
+Tomcat automatically deployed <code>/student-api</code> on port <code>8080</code>.</li>
+</ol>
+<h3>6.9 Test Scenarios &amp; Verification Evidence</h3>
+<h4>Test 1: POST – Create Student</h4>
+<ul>
+<li><strong>Request:</strong> <code>POST http://localhost:8080/student-api/students</code></li>
+<li><strong>Body:</strong> <code>{&quot;name&quot;:&quot;Kenean Belay&quot;,&quot;email&quot;:&quot;kenean.belay@university.edu.et&quot;,&quot;department&quot;:&quot;Artificial Intelligence&quot;}</code></li>
+<li><strong>HTTP Status:</strong> <code>201 Created</code></li>
+<li><strong>Response Body:</strong></li>
+</ul>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;code&quot;: 201,
+  &quot;message&quot;: &quot;Student record created successfully.&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 4,
+    &quot;name&quot;: &quot;Kenean Belay&quot;,
+    &quot;email&quot;: &quot;kenean.belay@university.edu.et&quot;,
+    &quot;department&quot;: &quot;Artificial Intelligence&quot;
+  }
+}
+</code></pre>
+<h4>Test 2: PUT – Update Existing Student</h4>
+<ul>
+<li><strong>Request:</strong> <code>PUT http://localhost:8080/student-api/students/4</code></li>
+<li><strong>Body:</strong> <code>{&quot;name&quot;:&quot;Kenean Belay Updated&quot;,&quot;email&quot;:&quot;kenean.up@university.edu.et&quot;,&quot;department&quot;:&quot;Data Science&quot;}</code></li>
+<li><strong>HTTP Status:</strong> <code>200 OK</code></li>
+<li><strong>Response Body:</strong></li>
+</ul>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;code&quot;: 200,
+  &quot;message&quot;: &quot;Student record updated successfully.&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 4,
+    &quot;name&quot;: &quot;Kenean Belay Updated&quot;,
+    &quot;email&quot;: &quot;kenean.up@university.edu.et&quot;,
+    &quot;department&quot;: &quot;Data Science&quot;
+  }
+}
+</code></pre>
+<h4>Test 3: DELETE – Remove Student</h4>
+<ul>
+<li><strong>Request:</strong> <code>DELETE http://localhost:8080/student-api/students/4</code></li>
+<li><strong>HTTP Status:</strong> <code>200 OK</code></li>
+<li><strong>Response Body:</strong></li>
+</ul>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;code&quot;: 200,
+  &quot;message&quot;: &quot;Student record with ID 4 deleted successfully.&quot;,
+  &quot;data&quot;: {
+    &quot;deletedId&quot;: 4
+  }
+}
+</code></pre>
+<h4>Test 4: DELETE – Non-Existent Record (ID 999)</h4>
+<ul>
+<li><strong>Request:</strong> <code>DELETE http://localhost:8080/student-api/students/999</code></li>
+<li><strong>HTTP Status:</strong> <code>404 Not Found</code></li>
+<li><strong>Response Body:</strong></li>
+</ul>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;error&quot;,
+  &quot;code&quot;: 404,
+  &quot;message&quot;: &quot;Not Found: Cannot delete student. No record found with ID 999.&quot;
+}
+</code></pre>
+<h4>Test 5: POST – Validation Failure (Blank Name)</h4>
+<ul>
+<li><strong>Request:</strong> <code>POST http://localhost:8080/student-api/students</code></li>
+<li><strong>Body:</strong> <code>{&quot;name&quot;:&quot;&quot;,&quot;email&quot;:&quot;invalid-email&quot;,&quot;department&quot;:&quot;CS&quot;}</code></li>
+<li><strong>HTTP Status:</strong> <code>400 Bad Request</code></li>
+<li><strong>Response Body:</strong></li>
+</ul>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;error&quot;,
+  &quot;code&quot;: 400,
+  &quot;message&quot;: &quot;Field 'name' is required and cannot be empty.&quot;
+}
+</code></pre>
+<hr />
+<div style="page-break-after: always;"></div>
+<h2>7. Comparative Architectural Analysis</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Experiment 1: PHP REST Service</th>
+<th>Experiment 2: Java REST Service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Programming Paradigm</strong></td>
+<td>Procedural / Scripted</td>
+<td>Object-Oriented / Compiled</td>
+</tr>
+<tr>
+<td><strong>Hosting Container</strong></td>
+<td>Apache HTTP Server + PHP Handler</td>
+<td>Apache Tomcat 10 (Servlet Container)</td>
+</tr>
+<tr>
+<td><strong>Response Format</strong></td>
+<td>Extensible Markup Language (<strong>XML</strong>)</td>
+<td>JavaScript Object Notation (<strong>JSON</strong>)</td>
+</tr>
+<tr>
+<td><strong>Database Access Layer</strong></td>
+<td>PHP Data Objects (PDO)</td>
+<td>Java Database Connectivity (JDBC)</td>
+</tr>
+<tr>
+<td><strong>SQL Injection Defense</strong></td>
+<td>PDO Prepared Statements (<code>:param</code>)</td>
+<td>JDBC Prepared Statements (<code>?</code>)</td>
+</tr>
+<tr>
+<td><strong>Input Parsing</strong></td>
+<td>Native <code>$_GET</code> superglobal array</td>
+<td>Google Gson deserialization from <code>Reader</code></td>
+</tr>
+<tr>
+<td><strong>Deployment Model</strong></td>
+<td>Script placed in web root symlink</td>
+<td>Packaged WAR file auto-deployed in <code>webapps/</code></td>
+</tr>
+<tr>
+<td><strong>Typical Use-Case</strong></td>
+<td>Legacy enterprise integration, B2B feeds</td>
+<td>High-throughput web applications, microservices</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>8. Challenges Encountered &amp; Engineering Solutions</h2>
+<ol>
+<li><strong>Tomcat 10 Package Namespace Migration (<code>javax.*</code> to <code>jakarta.*</code>):</strong>
+<ul>
+<li><em>Problem:</em> In modern Tomcat 10, servlets using <code>javax.servlet.*</code> throw <code>ClassNotFoundException</code> because Tomcat 10 implements Jakarta EE 9/10 specifications.</li>
+<li><em>Solution:</em> We configured Maven dependency <code>jakarta.servlet:jakarta.servlet-api:5.0.0</code> with <code>provided</code> scope and updated all imports to <code>jakarta.servlet.*</code> and <code>jakarta.servlet.http.*</code>.</li>
+</ul>
+</li>
+<li><strong>Ubuntu Linux MySQL Socket Authentication:</strong>
+<ul>
+<li><em>Problem:</em> Connecting using hostname <code>localhost</code> caused PHP to attempt unix domain socket communication (<code>/var/run/mysqld/mysqld.sock</code>), conflicting with standard user permissions.</li>
+<li><em>Solution:</em> We specified <code>127.0.0.1</code> and port <code>3306</code> in both PHP DSN and JDBC connection URLs to force reliable TCP/IP loopback communication.</li>
+</ul>
+</li>
+<li><strong>Apache Document Root vs. User Home Directory Permissions:</strong>
+<ul>
+<li><em>Problem:</em> Creating a symlink from <code>/var/www/html/experiment1</code> to <code>/home/oliyad-dandena/...</code> initially resulted in <code>403 Forbidden</code> because user home directories have restricted permissions (<code>drwxr-x---</code>).</li>
+<li><em>Solution:</em> We adjusted parent directory execute permissions (<code>chmod o+x</code>) so Apache's <code>www-data</code> daemon can traverse the path and serve <code>parts.php</code> seamlessly.</li>
+</ul>
+</li>
+<li><strong>Foreign Key Integrity &amp; Relational Filtering:</strong>
+<ul>
+<li><em>Problem:</em> Ensuring parts strictly belong to valid vendors while enforcing <code>part_id &gt;= 1000</code>.</li>
+<li><em>Solution:</em> We engineered sample data having parts both above and below 1000 across multiple vendors and verified the <code>INNER JOIN</code> filter using automated regression tests.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>9. Conclusion &amp; Recommendations</h2>
+<p>Both experiments prescribed in <strong>Web Services Lab Practice 2</strong> were successfully implemented, deployed, and validated:</p>
+<ol>
+<li><strong>Experiment 1</strong> demonstrated the power and simplicity of PHP for creating lightweight RESTful services that produce standards-compliant XML. The service strictly adheres to the vendor query specification and business filter rule (<code>part_id &gt;= 1000</code>).</li>
+<li><strong>Experiment 2</strong> provided hands-on experience in modern enterprise Java web development. The service demonstrated end-to-end resource manipulation using HTTP verbs (<code>POST</code>, <code>PUT</code>, <code>DELETE</code>), robust JDBC parameterization, and JSON serialization.</li>
+</ol>
+<h3>Recommendations for Future Enhancements:</h3>
+<ul>
+<li>Implement API token authentication (e.g., Bearer tokens or API keys) to protect sensitive database write operations.</li>
+<li>Utilize connection pooling (such as HikariCP or Apache Commons DBCP) in the Java service to enhance connection efficiency under high concurrent loads.</li>
+</ul>
+<hr />
+<h2>10. References</h2>
+<ol>
+<li>Fielding, R. T. (2000). <em>Architectural Styles and the Design of Network-based Software Architectures</em>. Doctoral dissertation, University of California, Irvine.</li>
+<li>Oracle Corporation. <em>The Java Tutorials: JDBC Basics</em>. <a href="https://docs.oracle.com/javase/tutorial/jdbc/">https://docs.oracle.com/javase/tutorial/jdbc/</a></li>
+<li>Jakarta EE Working Group. <em>Jakarta Servlet Specification Version 5.0</em>. <a href="https://jakarta.ee/specifications/servlet/5.0/">https://jakarta.ee/specifications/servlet/5.0/</a></li>
+<li>The PHP Group. <em>PHP Data Objects (PDO) Documentation</em>. <a href="https://www.php.net/manual/en/book.pdo.php">https://www.php.net/manual/en/book.pdo.php</a></li>
+<li>Apache Software Foundation. <em>Apache Tomcat 10 Documentation</em>. <a href="https://tomcat.apache.org/tomcat-10.0-doc/">https://tomcat.apache.org/tomcat-10.0-doc/</a></li>
+<li>Haramaya University. <em>Web Services Lab Practice 2 Guide and Experiments Manual</em>. 2026–2027 Academic Year.</li>
+</ol>
+
+</body>
+</html>

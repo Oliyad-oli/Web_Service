@@ -10,6 +10,7 @@ tomcat50-jwsdp/work/*
 # Build artifacts
 YourApp/build/
 **/target/
+Web_Services_Lab2_Group_Submission/
 
 # Large binary installers
 *.exe
