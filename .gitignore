@@ -9,6 +9,7 @@ tomcat50-jwsdp/work/*
 
 # Build artifacts
 YourApp/build/
+**/target/
 
 # Large binary installers
 *.exe
